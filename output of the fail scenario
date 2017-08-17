@@ -1,0 +1,334 @@
+/*
+
+  The algorithm does not give answer to puzzle starting in location 0,2.... why?
+
+  59  34   1  16  53  30  11  14  
+   2  17  64   0  12  15  42  29  
+  35  58  33  54  31  52  13  10  
+  18   3   0  49   0  43  28  41  
+  57  36  55  32  51  40   9  24  
+   4  19  50   0  48  25  44  27  
+  37  56  21   6  39  46  23   8  
+  20   5  38  47  22   7  26  45  
+
+  ------Loop: 2 ------
+ Jump : 1 
+ Knight Location: 0,2 
+ Available moves: 4 
+ Best Next Move is : 4 
+ 
+ Jump : 2 
+ Knight Location: 1,0 
+ Available moves: 2 
+ Best Next Move is : 1 
+ 
+ Jump : 3 
+ Knight Location: 3,1 
+ Available moves: 5 
+ Best Next Move is : 2 
+ 
+ Jump : 4 
+ Knight Location: 5,0 
+ Available moves: 3 
+ Best Next Move is : 1 
+ 
+ Jump : 5 
+ Knight Location: 7,1 
+ Available moves: 2 
+ Best Next Move is : 7 
+ 
+ Jump : 6 
+ Knight Location: 6,3 
+ Available moves: 5 
+ Best Next Move is : 3 
+ 
+ Jump : 7 
+ Knight Location: 7,5 
+ Available moves: 3 
+ Best Next Move is : 7 
+ 
+ Jump : 8 
+ Knight Location: 6,7 
+ Available moves: 2 
+ Best Next Move is : 6 
+ 
+ Jump : 9 
+ Knight Location: 4,6 
+ Available moves: 5 
+ Best Next Move is : 5 
+ 
+ Jump : 10 
+ Knight Location: 2,7 
+ Available moves: 3 
+ Best Next Move is : 6 
+ 
+ Jump : 11 
+ Knight Location: 0,6 
+ Available moves: 2 
+ Best Next Move is : 4 
+ 
+ Jump : 12 
+ Knight Location: 1,4 
+ Available moves: 4 
+ Best Next Move is : 3 
+ 
+ Jump : 13 
+ Knight Location: 2,6 
+ Available moves: 5 
+ Best Next Move is : 5 
+ 
+ Jump : 14 
+ Knight Location: 0,7 
+ Available moves: 1 
+ Best Next Move is : 4 
+ 
+ Jump : 15 
+ Knight Location: 1,5 
+ Available moves: 4 
+ Best Next Move is : 8 
+ 
+ Jump : 16 
+ Knight Location: 0,3 
+ Available moves: 3 
+ Best Next Move is : 4 
+ 
+ Jump : 17 
+ Knight Location: 1,1 
+ Available moves: 3 
+ Best Next Move is : 2 
+ 
+ Jump : 18 
+ Knight Location: 3,0 
+ Available moves: 3 
+ Best Next Move is : 1 
+ 
+ Jump : 19 
+ Knight Location: 5,1 
+ Available moves: 4 
+ Best Next Move is : 2 
+ 
+ Jump : 20 
+ Knight Location: 7,0 
+ Available moves: 1 
+ Best Next Move is : 7 
+ 
+ Jump : 21 
+ Knight Location: 6,2 
+ Available moves: 4 
+ Best Next Move is : 3 
+ 
+ Jump : 22 
+ Knight Location: 7,4 
+ Available moves: 3 
+ Best Next Move is : 7 
+ 
+ Jump : 23 
+ Knight Location: 6,6 
+ Available moves: 3 
+ Best Next Move is : 5 
+ 
+ Jump : 24 
+ Knight Location: 4,7 
+ Available moves: 2 
+ Best Next Move is : 4 
+ 
+ Jump : 25 
+ Knight Location: 5,5 
+ Available moves: 4 
+ Best Next Move is : 1 
+ 
+ Jump : 26 
+ Knight Location: 7,6 
+ Available moves: 2 
+ Best Next Move is : 5 
+ 
+ Jump : 27 
+ Knight Location: 5,7 
+ Available moves: 3 
+ Best Next Move is : 6 
+ 
+ Jump : 28 
+ Knight Location: 3,6 
+ Available moves: 3 
+ Best Next Move is : 5 
+ 
+ Jump : 29 
+ Knight Location: 1,7 
+ Available moves: 2 
+ Best Next Move is : 8 
+ 
+ Jump : 30 
+ Knight Location: 0,5 
+ Available moves: 2 
+ Best Next Move is : 2 
+ 
+ Jump : 31 
+ Knight Location: 2,4 
+ Available moves: 5 
+ Best Next Move is : 2 
+ 
+ Jump : 32 
+ Knight Location: 4,3 
+ Available moves: 3 
+ Best Next Move is : 6 
+ 
+ Jump : 33 
+ Knight Location: 2,2 
+ Available moves: 3 
+ Best Next Move is : 6 
+ 
+ Jump : 34 
+ Knight Location: 0,1 
+ Available moves: 2 
+ Best Next Move is : 2 
+ 
+ Jump : 35 
+ Knight Location: 2,0 
+ Available moves: 3 
+ Best Next Move is : 1 
+ 
+ Jump : 36 
+ Knight Location: 4,1 
+ Available moves: 3 
+ Best Next Move is : 2 
+ 
+ Jump : 37 
+ Knight Location: 6,0 
+ Available moves: 2 
+ Best Next Move is : 3 
+ 
+ Jump : 38 
+ Knight Location: 7,2 
+ Available moves: 2 
+ Best Next Move is : 7 
+ 
+ Jump : 39 
+ Knight Location: 6,4 
+ Available moves: 3 
+ Best Next Move is : 5 
+ 
+ Jump : 40 
+ Knight Location: 4,5 
+ Available moves: 3 
+ Best Next Move is : 7 
+ 
+ Jump : 41 
+ Knight Location: 3,7 
+ Available moves: 3 
+ Best Next Move is : 6 
+ 
+ Jump : 42 
+ Knight Location: 1,6 
+ Available moves: 2 
+ Best Next Move is : 2 
+ 
+ Jump : 43 
+ Knight Location: 3,5 
+ Available moves: 3 
+ Best Next Move is : 1 
+ 
+ Jump : 44 
+ Knight Location: 5,6 
+ Available moves: 2 
+ Best Next Move is : 1 
+ 
+ Jump : 45 
+ Knight Location: 7,7 
+ Available moves: 1 
+ Best Next Move is : 8 
+ 
+ Jump : 46 
+ Knight Location: 6,5 
+ Available moves: 3 
+ Best Next Move is : 4 
+ 
+ Jump : 47 
+ Knight Location: 7,3 
+ Available moves: 3 
+ Best Next Move is : 5 
+ 
+ Jump : 48 
+ Knight Location: 5,4 
+ Available moves: 2 
+ Best Next Move is : 6 
+ 
+ Jump : 49 
+ Knight Location: 3,3 
+ Available moves: 4 
+ Best Next Move is : 2 
+ 
+ Jump : 50 
+ Knight Location: 5,2 
+ Available moves: 2 
+ Best Next Move is : 7 
+ 
+ Jump : 51 
+ Knight Location: 4,4 
+ Available moves: 3 
+ Best Next Move is : 5 
+ 
+ Jump : 52 
+ Knight Location: 2,5 
+ Available moves: 2 
+ Best Next Move is : 6 
+ 
+ Jump : 53 
+ Knight Location: 0,4 
+ Available moves: 2 
+ Best Next Move is : 2 
+ 
+ Jump : 54 
+ Knight Location: 2,3 
+ Available moves: 1 
+ Best Next Move is : 2 
+ 
+ Jump : 55 
+ Knight Location: 4,2 
+ Available moves: 3 
+ Best Next Move is : 2 
+ 
+ Jump : 56 
+ Knight Location: 6,1 
+ Available moves: 2 
+ Best Next Move is : 6 
+ 
+ Jump : 57 
+ Knight Location: 4,0 
+ Available moves: 2 
+ Best Next Move is : 5 
+ 
+ Jump : 58 
+ Knight Location: 2,1 
+ Available moves: 2 
+ Best Next Move is : 6 
+ 
+ Jump : 59 
+ Knight Location: 0,0 
+ Available moves: 1 
+ Best Next Move is : 3 
+ 
+ Jump : 60 
+ Knight Location: 1,2 
+ Available moves: 0 
+ Best Next Move is : 0 
+ 
+ Jump : 61 
+ Knight Location: 1,2 
+ Available moves: 0 
+ Best Next Move is : 0 
+ 
+ Jump : 62 
+ Knight Location: 1,2 
+ Available moves: 0 
+ Best Next Move is : 0 
+ 
+ Jump : 63 
+ Knight Location: 1,2 
+ Available moves: 0 
+ Best Next Move is : 0 
+ 
+ Jump : 64 
+ Knight Location: 1,2 
+ Available moves: 0 
+ Best Next Move is : 0
+*/
