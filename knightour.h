@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+typedef unsigned char bool;
+
+#define true 1
+#define false 1
+
 //Board Size
 #define ROW 8
 #define COL 8
@@ -17,10 +22,10 @@
 //Enumerator for the knight moves
 enum Knight_Moves {NULLmove, Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8};
 
-struct Chess_Piece_Location{
+typedef struct Chess_Piece_Location{
 	int x;
 	int y;
-};
+}Chess_Piece_Location;
 
 int X (int x, int moveNumber){
 	switch (moveNumber){
@@ -88,8 +93,9 @@ int SelectData_INDEX(int Array[]){
 
 	int TMP = Array[0];
 	int Index = 0;
+	int T;
 	
-	for(int T=1;T<8;T++){
+	for(T=1;T<8;T++){
 		if(Array[T]<TMP && Array[T] !=0)
 		{
 			TMP = Array[T];
@@ -429,7 +435,7 @@ int NextMove(int x,int y, int Board[ROW][COL]){
 }
 
 //PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
-void PerformMove(int &x, int &y, int moveNumber, int marker, int Board[ROW][COL]){
+void PerformMove(int x, int y, int moveNumber, int marker, int Board[ROW][COL]){
 
 	x = X(x,moveNumber);
 	y = Y(y,moveNumber);
