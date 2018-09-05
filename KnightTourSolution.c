@@ -65,8 +65,8 @@ int main(){
 	fclose(fp);
 	printf("\n Solutions Completed \n ");
 	
-	int x = 2;
-	int y = 2;
+	int x = 0;
+	int y = 0;
 	
 	printf("\n %d \n ",IS_MOVE1_LEGAL);
 	printf("\n %d \n ",IS_MOVE2_LEGAL);
