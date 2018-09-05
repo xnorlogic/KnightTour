@@ -30,9 +30,9 @@ typedef struct Chess_Piece_Location{
 	int y;
 }Chess_Piece_Location;
 
-int X (int x, int moveNumber);
+int NEW_X (int x, int moveNumber);
 
-int Y (int y, int moveNumber);
+int NEW_Y (int y, int moveNumber);
 
 int SelectData_INDEX(int Array[]);
 

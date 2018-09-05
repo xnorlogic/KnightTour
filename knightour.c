@@ -1,6 +1,6 @@
 #include "knightour.h"
 
-int X (int x, int moveNumber){
+int NEW_X (int x, int moveNumber){
 	switch (moveNumber){
 			case 1:x = x + 2;//Perform Move1
 			break;
@@ -31,7 +31,7 @@ int X (int x, int moveNumber){
 	return x;
 }
 
-int Y (int y, int moveNumber){
+int NEW_Y (int y, int moveNumber){
 	switch (moveNumber){
 				case 1:y = y + 1;//Perform Move1
 				break;
@@ -410,8 +410,8 @@ int NextMove(int x,int y, int Board[ROW][COL]){
 //PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
 void PerformMove(int x, int y, int moveNumber, int marker, int Board[ROW][COL]){
 
-	x = X(x,moveNumber);
-	y = Y(y,moveNumber);
+	x = NEW_X(x,moveNumber);
+	y = NEW_Y(y,moveNumber);
 
 	Board[x][y] = marker;
 	
