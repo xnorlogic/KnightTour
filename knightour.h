@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 typedef unsigned char bool;
+typedef unsigned char U_Int8;
 
 #define true 1
 #define false 1
@@ -30,9 +31,9 @@ typedef struct Chess_Piece_Location{
 	int y;
 }Chess_Piece_Location;
 
-int NEW_X (int x, int moveNumber);
+U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber);
 
-int NEW_Y (int y, int moveNumber);
+U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber);
 
 int SelectData_INDEX(int Array[]);
 

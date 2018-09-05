@@ -1,6 +1,6 @@
 #include "knightour.h"
 
-int NEW_X (int x, int moveNumber){
+U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 	switch (moveNumber){
 			case 1:x = x + 2;//Perform Move1
 			break;
@@ -31,7 +31,7 @@ int NEW_X (int x, int moveNumber){
 	return x;
 }
 
-int NEW_Y (int y, int moveNumber){
+U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber){
 	switch (moveNumber){
 				case 1:y = y + 1;//Perform Move1
 				break;
