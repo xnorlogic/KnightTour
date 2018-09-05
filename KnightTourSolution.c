@@ -65,6 +65,11 @@ int main(){
 	fclose(fp);
 	printf("\n Solutions Completed \n ");
 	
+	x = 2;
+	y = 2;
+	
+	printf("\n %d \n ",IS_MOVE1_LEGAL);
+	
 	ClearBoard();
 	DispBoard ();
 	CreateMoves();
