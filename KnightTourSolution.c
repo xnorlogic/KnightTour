@@ -69,6 +69,13 @@ int main(){
 	int y = 2;
 	
 	printf("\n %d \n ",IS_MOVE1_LEGAL);
+	printf("\n %d \n ",IS_MOVE2_LEGAL);
+	printf("\n %d \n ",IS_MOVE3_LEGAL);
+	printf("\n %d \n ",IS_MOVE4_LEGAL);
+	printf("\n %d \n ",IS_MOVE5_LEGAL);
+	printf("\n %d \n ",IS_MOVE6_LEGAL);
+	printf("\n %d \n ",IS_MOVE7_LEGAL);
+	printf("\n %d \n ",IS_MOVE8_LEGAL);
 	
 	ClearBoard();
 	DispBoard ();
