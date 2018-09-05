@@ -65,5 +65,10 @@ int main(){
 	fclose(fp);
 	printf("\n Solutions Completed \n ");
 	
+	ClearBoard();
+	DispBoard ();
+	CreateMoves();
+	DispBoard ();
+	
 	return 0;
 }
