@@ -29,11 +29,11 @@ int Board[ROW][COL];
 /*Move Restriction conditions knight*/
 #define IS_MOVE1_LEGAL (((X_PLUS_2)  <= 7) && ((X_PLUS_2)  >= 0)) || (((Y_PLUS_1)    <= 7) && ((Y_PLUS_1)    >= 0)) 
 #define IS_MOVE2_LEGAL (((X_PLUS_2)  <= 7) && ((X_PLUS_2)  >= 0)) || (((Y_MINUS_1)   >= 0) && ((Y_MINUS_1)   <= 7))
-#define IS_MOVE3_LEGAL (((X_PLUS_1)  <= 7) && ((X_PLUS_1)  >= 0)) || (((Y_PLUS_2 y)  <= 7) && ((Y_PLUS_2 y)  >= 0))
+#define IS_MOVE3_LEGAL (((X_PLUS_1)  <= 7) && ((X_PLUS_1)  >= 0)) || (((Y_PLUS_2)  <= 7) && ((Y_PLUS_2)  >= 0))
 #define IS_MOVE4_LEGAL (((X_PLUS_1)  <= 7) && ((X_PLUS_1)  >= 0)) || (((Y_MINUS_2)   >= 0) && ((Y_MINUS_2)   <= 7))
 #define IS_MOVE5_LEGAL (((X_MINUS_2) >= 0) && ((X_MINUS_2) <= 7)) || (((Y_PLUS_1)    <= 7) && ((Y_PLUS_1)    >= 0))
 #define IS_MOVE6_LEGAL (((X_MINUS_2) >= 0) && ((X_MINUS_2) <= 7)) || (((Y_MINUS_1)   >= 0) && ((Y_MINUS_1)   <= 7))
-#define IS_MOVE7_LEGAL (((X_MINUS_1) >= 0) && ((X_MINUS_1) <= 7)) || (((Y_PLUS_2 y)  <= 7) && ((Y_PLUS_2 y)  >= 0))
+#define IS_MOVE7_LEGAL (((X_MINUS_1) >= 0) && ((X_MINUS_1) <= 7)) || (((Y_PLUS_2)  <= 7) && ((Y_PLUS_2)  >= 0))
 #define IS_MOVE8_LEGAL (((X_MINUS_1) >= 0) && ((X_MINUS_1) <= 7)) || (((Y_MINUS_2)   >= 0) && ((Y_MINUS_2)   <= 7))
  
 //Enumerator for the knight moves
