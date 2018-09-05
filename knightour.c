@@ -168,7 +168,7 @@ bool MOVE8_OK(int x, int y, int MoveAvailable){
 }
 
 //Returns the value at a given location
-int BoardValue_XY(int x, int y, int moveNumber, int Board[ROW][COL]){
+int BoardValue_XY(int x, int y, int moveNumber){
     /*
 	Posible moves for the knight
 	Board[x + 2][y + 1]
@@ -212,7 +212,7 @@ int BoardValue_XY(int x, int y, int moveNumber, int Board[ROW][COL]){
 }
 
 //returns how many moves for the Knight are available at a given location in the board
-int DetermineMoves(int x, int y,int Board[ROW][COL]){
+int DetermineMoves(int x, int y){
 
 	int possibleMoves = 0;
 	
@@ -292,7 +292,7 @@ int DetermineMoves(int x, int y,int Board[ROW][COL]){
 }
 
 //Display the board in the console
-void DispBoard (int Board[ROW][COL]){
+void DispBoard (void){
 	printf(" \n ");
 	for (int R = 0; R<ROW; R++){
 		for (int C =0; C<COL; C++){
@@ -303,7 +303,7 @@ void DispBoard (int Board[ROW][COL]){
 }
 
 //Write the board to a txt file
-void WriteToFile (int Board[ROW][COL], char Location[]){
+void WriteToFile (char Location[]){
 	FILE *fp;
     fp = fopen(Location, "a");
 	
@@ -319,7 +319,7 @@ void WriteToFile (int Board[ROW][COL], char Location[]){
 }
 
 //Genereates initial empty board with zeros
-void ClearBoard (int Board[ROW][COL]){
+void ClearBoard (void){
 	for (int R = 0; R<ROW; R++){
 		for (int C =0; C<COL; C++){
 			Board [R][C] = 0;
@@ -329,7 +329,7 @@ void ClearBoard (int Board[ROW][COL]){
 
 //This is a prototype to generate all moves available at the initial stage of the board. 
 //(No necessary for the solution)
-void CreateMoves (int Board[ROW][COL]){
+void CreateMoves (void){
 	for (int R = 0; R<ROW; R++)
 	{
 		for (int C =0; C<COL; C++)
@@ -342,7 +342,7 @@ void CreateMoves (int Board[ROW][COL]){
 //--------------------------------------------------------------------------------------------
 //Logic for the KnightTour solution-----------------------------------------------------------
 //returns next move based on how many moves for the knight are available at a given position
-int NextMove(int x,int y, int Board[ROW][COL]){
+int NextMove(int x,int y){
 
 	int MOVES [8] = {0,0,0,0,0,0,0,0};
 	int Location [8] = {0,0,0,0,0,0,0,0};
@@ -408,7 +408,7 @@ int NextMove(int x,int y, int Board[ROW][COL]){
 }
 
 //PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
-void PerformMove(int x, int y, int moveNumber, int marker, int Board[ROW][COL]){
+void PerformMove(int x, int y, int moveNumber, int marker){
 
 	x = NEW_X(x,moveNumber);
 	y = NEW_Y(y,moveNumber);

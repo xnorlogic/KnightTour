@@ -14,7 +14,6 @@ int main(){
 	char Location_Solution[] = "KnightTourOutput.txt";
 	char Location_Moves[] = "MovesStatus.txt";
 
-	int Board [ROW][COL];
 	int NumberOfMoves = 0;
 	int BestNextMove;
 	
@@ -29,7 +28,7 @@ int main(){
 			//Initialize the next move to 0 (no move at the begining)
 			BestNextMove = 0;
 			//Clear the board (Clean zero no moves on the board)
-			ClearBoard(Board);
+			ClearBoard();
 			
 			//Seed the initial or starting point of the Knight
 			White_Knight_1_Location.x = LOOPx;
@@ -38,16 +37,16 @@ int main(){
 			for (int CNT=1;CNT<65;CNT++){	
 				
 				//Perform a Move
-				PerformMove(White_Knight_1_Location.x, White_Knight_1_Location.y, BestNextMove, CNT, Board);
+				PerformMove(White_Knight_1_Location.x, White_Knight_1_Location.y, BestNextMove, CNT);
 				
 				//Relocate the Knight
 				White_Knight_1_Location.x = White_Knight_1_Location.x;
 				White_Knight_1_Location.y = White_Knight_1_Location.y;
 				
 				//Determine number of moves available from the current location of the Knight
-				NumberOfMoves = DetermineMoves(White_Knight_1_Location.x, White_Knight_1_Location.y, Board);
+				NumberOfMoves = DetermineMoves(White_Knight_1_Location.x, White_Knight_1_Location.y);
 				//Determine the best next move for the Knight
-				BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y, Board);
+				BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
 				
 				//Do some print outs to the file
 				fprintf(fp,"\n Jump : %d ",CNT);
@@ -58,7 +57,7 @@ int main(){
 			}
 			
 			//Write the final board to the file
-			WriteToFile(Board,Location_Solution);	
+			WriteToFile(Location_Solution);	
 		}
 		fprintf(fp,"\n --------------------- \n");
 	}

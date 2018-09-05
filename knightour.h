@@ -13,6 +13,9 @@ typedef unsigned char U_Int8;
 #define ROW 8
 #define COL 8
 
+/*Chess board*/
+int Board[ROW][COL];
+
 //Move Restriction conditions
 #define IS_MOVE1_LEGAL (x + 2) <= 7 && (y + 1) <= 7
 #define IS_MOVE2_LEGAL (x + 2) <= 7 && (y - 1) >= 0
@@ -54,31 +57,31 @@ bool MOVE7_OK(int x, int y, int MoveAvailable);
 bool MOVE8_OK(int x, int y, int MoveAvailable);
 
 //Returns the value at a given location
-int BoardValue_XY(int x, int y, int moveNumber, int Board[ROW][COL]);
+int BoardValue_XY(int x, int y, int moveNumber);
 
 //returns how many moves for the Knight are available at a given location in the board
-int DetermineMoves(int x, int y,int Board[ROW][COL]);
+int DetermineMoves(int x, int y);
 
 //Display the board in the console
-void DispBoard (int Board[ROW][COL]);
+void DispBoard (void);
 
 //Write the board to a txt file
-void WriteToFile (int Board[ROW][COL], char Location[]);
+void WriteToFile (char Location[]);
 
 //Genereates initial empty board with zeros
-void ClearBoard (int Board[ROW][COL]);
+void ClearBoard (void);
 
 //This is a prototype to generate all moves available at the initial stage of the board. 
 //(No necessary for the solution)
-void CreateMoves (int Board[ROW][COL]);
+void CreateMoves (void);
 
 //--------------------------------------------------------------------------------------------
 //Logic for the KnightTour solution-----------------------------------------------------------
 //returns next move based on how many moves for the knight are available at a given position
-int NextMove(int x,int y, int Board[ROW][COL]);
+int NextMove(int x,int y);
 
 //PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
-void PerformMove(int x, int y, int moveNumber, int marker, int Board[ROW][COL]);
+void PerformMove(int x, int y, int moveNumber, int marker);
 //--------------------------------------------------------------------------------------------
 
 #endif /* */
