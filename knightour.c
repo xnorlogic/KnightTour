@@ -216,7 +216,7 @@ int DetermineMoves(int x, int y){
 
 	int possibleMoves = 0;
 	
-	if(MOVE1_OK(x,y,BoardValue_XY(x,y,Move1,Board)))
+	if(MOVE1_OK(x,y,BoardValue_XY(x,y,Move1)))
 	{
 		possibleMoves++;
 	}
@@ -225,7 +225,7 @@ int DetermineMoves(int x, int y){
 		possibleMoves=possibleMoves;
 	}
 		
-	if(MOVE2_OK(x,y,BoardValue_XY(x,y,Move2,Board)))
+	if(MOVE2_OK(x,y,BoardValue_XY(x,y,Move2)))
 	{
 		possibleMoves++;
 	}
@@ -234,7 +234,7 @@ int DetermineMoves(int x, int y){
 		possibleMoves=possibleMoves;
 	}
 		
-	if(MOVE3_OK(x,y,BoardValue_XY(x,y,Move3,Board)))
+	if(MOVE3_OK(x,y,BoardValue_XY(x,y,Move3)))
 	{
 		possibleMoves++;
 	}
@@ -243,7 +243,7 @@ int DetermineMoves(int x, int y){
 		possibleMoves=possibleMoves;
 	}
 		
-	if(MOVE4_OK(x,y,BoardValue_XY(x,y,Move4,Board)))
+	if(MOVE4_OK(x,y,BoardValue_XY(x,y,Move4)))
 	{
 		possibleMoves++;
 	}
@@ -252,7 +252,7 @@ int DetermineMoves(int x, int y){
 		possibleMoves=possibleMoves;
 	}
 		
-	if(MOVE5_OK(x,y,BoardValue_XY(x,y,Move5,Board)))
+	if(MOVE5_OK(x,y,BoardValue_XY(x,y,Move5)))
 	{
 		possibleMoves++;
 	}
@@ -261,7 +261,7 @@ int DetermineMoves(int x, int y){
 		possibleMoves=possibleMoves;
 	}
 		
-	if(MOVE6_OK(x,y,BoardValue_XY(x,y,Move6,Board)))
+	if(MOVE6_OK(x,y,BoardValue_XY(x,y,Move6)))
 	{
 		possibleMoves++;
 	}
@@ -270,7 +270,7 @@ int DetermineMoves(int x, int y){
 		possibleMoves=possibleMoves;
 	}
 	
-	if(MOVE7_OK(x,y,BoardValue_XY(x,y,Move7,Board)))
+	if(MOVE7_OK(x,y,BoardValue_XY(x,y,Move7)))
 	{
 		possibleMoves++;
 	}
@@ -279,7 +279,7 @@ int DetermineMoves(int x, int y){
 		possibleMoves=possibleMoves;
 	}
 		
-	if(MOVE8_OK(x,y,BoardValue_XY(x,y,Move8,Board)))
+	if(MOVE8_OK(x,y,BoardValue_XY(x,y,Move8)))
 	{
 		possibleMoves++;
 	}
@@ -334,7 +334,7 @@ void CreateMoves (void){
 	{
 		for (int C =0; C<COL; C++)
 		{
-			Board [R][C] = DetermineMoves(R,C,Board);
+			Board [R][C] = DetermineMoves(R,C);
 		}
 	}
 }
@@ -348,57 +348,57 @@ int NextMove(int x,int y){
 	int Location [8] = {0,0,0,0,0,0,0,0};
 	int Jumps = 0;
 	
-	if (MOVE1_OK(x,y,BoardValue_XY(x,y,Move1,Board))){
-		MOVES[Jumps] = DetermineMoves(x+2,y+1,Board);
+	if (MOVE1_OK(x,y,BoardValue_XY(x,y,Move1))){
+		MOVES[Jumps] = DetermineMoves(x+2,y+1);
 		Location[Jumps] = Move1;
 		Jumps++;
 	}
 	else{Jumps=Jumps;}
 	
-	if (MOVE2_OK(x,y,BoardValue_XY(x,y,Move2,Board))){
-		MOVES[Jumps] = DetermineMoves(x+2,y-1,Board);
+	if (MOVE2_OK(x,y,BoardValue_XY(x,y,Move2))){
+		MOVES[Jumps] = DetermineMoves(x+2,y-1);
 		Location[Jumps] = Move2;
 		Jumps++;
 	}
 	else{Jumps=Jumps;}
 	
-	if (MOVE3_OK(x,y,BoardValue_XY(x,y,Move3,Board))){
-		MOVES[Jumps] = DetermineMoves(x+1,y+2,Board);
+	if (MOVE3_OK(x,y,BoardValue_XY(x,y,Move3))){
+		MOVES[Jumps] = DetermineMoves(x+1,y+2);
 		Location[Jumps] = Move3;
 		Jumps++;
 	}
 	else{Jumps=Jumps;}
 	
-	if (MOVE4_OK(x,y,BoardValue_XY(x,y,Move4,Board))){
-		MOVES[Jumps] = DetermineMoves(x+1,y-2,Board);
+	if (MOVE4_OK(x,y,BoardValue_XY(x,y,Move4))){
+		MOVES[Jumps] = DetermineMoves(x+1,y-2);
 		Location[Jumps] = Move4;
 		Jumps++;
 	}
 	else{Jumps=Jumps;}
 	
-	if (MOVE5_OK(x,y,BoardValue_XY(x,y,Move5,Board))){
-		MOVES[Jumps] = DetermineMoves(x-2,y+1,Board);
+	if (MOVE5_OK(x,y,BoardValue_XY(x,y,Move5))){
+		MOVES[Jumps] = DetermineMoves(x-2,y+1);
 		Location[Jumps] = Move5;
 		Jumps++;
 	}
 	else{Jumps=Jumps;}
 	
-	if (MOVE6_OK(x,y,BoardValue_XY(x,y,Move6,Board))){
-		MOVES[Jumps] = DetermineMoves(x-2,y-1,Board);
+	if (MOVE6_OK(x,y,BoardValue_XY(x,y,Move6))){
+		MOVES[Jumps] = DetermineMoves(x-2,y-1);
 		Location[Jumps] = Move6;
 		Jumps++;
 	}
 	else{Jumps=Jumps;}
 	
-	if (MOVE7_OK(x,y,BoardValue_XY(x,y,Move7,Board))){
-		MOVES[Jumps] = DetermineMoves(x-1,y+2,Board);
+	if (MOVE7_OK(x,y,BoardValue_XY(x,y,Move7))){
+		MOVES[Jumps] = DetermineMoves(x-1,y+2);
 		Location[Jumps] = Move7;
 		Jumps++;
 	}
 	else{Jumps=Jumps;}
 	
-	if (MOVE8_OK(x,y,BoardValue_XY(x,y,Move8,Board))){
-		MOVES[Jumps] = DetermineMoves(x-1,y-2,Board);
+	if (MOVE8_OK(x,y,BoardValue_XY(x,y,Move8))){
+		MOVES[Jumps] = DetermineMoves(x-1,y-2);
 		Location[Jumps] = Move8;
 		Jumps++;
 	}
