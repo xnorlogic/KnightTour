@@ -2,7 +2,8 @@
 
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 	switch (moveNumber){
-			case 1:x = x + 2;//Perform Move1
+			case 1:x = x + 2;//Perform 34
+			`
 			break;
 			
 			case 2:x = x + 2;//Perform Move2
@@ -141,15 +142,14 @@ U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y, U_Int8 moveNumber){
 U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	
 	U_Int8 possibleMoves = 0;
-	
-	U_Int8 M1 = IS_MOVE1_LEGAL;
-	U_Int8 M2 = IS_MOVE2_LEGAL;
-	U_Int8 M3 = IS_MOVE3_LEGAL;
-	U_Int8 M4 = IS_MOVE4_LEGAL;
-	U_Int8 M5 = IS_MOVE5_LEGAL;
-	U_Int8 M6 = IS_MOVE6_LEGAL;
-	U_Int8 M7 = IS_MOVE7_LEGAL;
-	U_Int8 M8 = IS_MOVE8_LEGAL;
+	U_Int8 M1 = IS_MOVE1_LEGAL && (BoardValue_XY(x,y,1) == 0);
+	U_Int8 M2 = IS_MOVE2_LEGAL && (BoardValue_XY(x,y,2) == 0);
+	U_Int8 M3 = IS_MOVE3_LEGAL && (BoardValue_XY(x,y,3) == 0);
+	U_Int8 M4 = IS_MOVE4_LEGAL && (BoardValue_XY(x,y,4) == 0);
+	U_Int8 M5 = IS_MOVE5_LEGAL && (BoardValue_XY(x,y,5) == 0);
+	U_Int8 M6 = IS_MOVE6_LEGAL && (BoardValue_XY(x,y,6) == 0);
+	U_Int8 M7 = IS_MOVE7_LEGAL && (BoardValue_XY(x,y,7) == 0);
+	U_Int8 M8 = IS_MOVE8_LEGAL && (BoardValue_XY(x,y,7) == 0);
 	
 	possibleMoves = M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8;
 	
@@ -211,7 +211,7 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 
     U_Int8 ghost_x;
 	U_Int8 ghost_y;
-	U_Int8 moveNumber = 1;
+	U_Int8 moveNumber = 0`;
 	U_Int8 moves[8] = {255,255,255,255,255,255,255,255};
 	
 	for (moveNumber = 0;moveNumber<7;moveNumber++){
