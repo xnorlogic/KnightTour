@@ -54,6 +54,8 @@ int main(){
 				
 			}
 			
+			DispBoard();
+			
 			//Write the final board to the file
 			WriteToFile(Location_Solution);	
 		}
