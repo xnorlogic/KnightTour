@@ -211,7 +211,7 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 
     U_Int8 ghost_x;
 	U_Int8 ghost_y;
-	U_Int8 moveNumber = 0`;
+	U_Int8 moveNumber = 0;
 	U_Int8 moves[8] = {255,255,255,255,255,255,255,255};
 	
 	for (moveNumber = 0;moveNumber<7;moveNumber++){
