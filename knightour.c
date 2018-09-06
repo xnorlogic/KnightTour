@@ -214,9 +214,9 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 	U_Int8 moveNumber = 1;
 	U_Int8 moves[8] = {255,255,255,255,255,255,255,255};
 	
-	for (moveNumber = 1;moveNumber<=8;moveNumber++){
+	for (moveNumber = 0;moveNumber<7;moveNumber++){
 		
-		switch (moveNumber){
+		switch (moveNumber + 1){
 					case 1:
 					ghost_x = X_PLUS_2;
 					ghost_y = Y_PLUS_1;
@@ -264,7 +264,7 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 				} 
 		
 		if ((((ghost_x) >= 0) && ((ghost_x) <= 7)) && (((ghost_y) >= 0) && ((ghost_y) <= 7))){
-			if(BoardValue_XY(ghost_x,ghost_y,moveNumber) == 0){
+			if(BoardValue_XY(ghost_x,ghost_y,moveNumber + 1) == 0){
 				moves[moveNumber] = DetermineMoves(ghost_x,ghost_y);
 			}
 			else{
