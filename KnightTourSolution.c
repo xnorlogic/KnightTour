@@ -91,25 +91,12 @@ int main(){
 	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,0);
 	Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = 1;
 	
-	BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
-	
-	printf("\n %d \n ",BestNextMove);
-	
-	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
-	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
+	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,1);
+	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,1);
 	Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = 2;
 	
-	BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
+	printf("\n %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y););
 	
-	printf("\n %d \n ",BestNextMove);
-	
-	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
-	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
-	Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = 3;
-	
-	BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
-	
-	printf("\n %d \n ",BestNextMove);
-	
+
 	return 0;
 }
