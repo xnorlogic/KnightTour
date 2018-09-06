@@ -76,7 +76,7 @@ int main(){
 	printf("\n %d \n ",IS_MOVE6_LEGAL);
 	printf("\n %d \n ",IS_MOVE7_LEGAL);
 	printf("\n %d \n ",IS_MOVE8_LEGAL);
-	printf("\n %d \n ",IS_MOVE1_LEGAL + IS_MOVE2_LEGAL + IS_MOVE3_LEGAL + IS_MOVE4_LEGAL + IS_MOVE5_LEGAL + IS_MOVE6_LEGAL + IS_MOVE7_LEGAL + IS_MOVE8_LEGAL);
+	printf("\n %d \n ",(int)IS_MOVE1_LEGAL + (int)IS_MOVE2_LEGAL + (int)IS_MOVE3_LEGAL + (int)IS_MOVE4_LEGAL + (int)IS_MOVE5_LEGAL + (int)IS_MOVE6_LEGAL + (int)IS_MOVE7_LEGAL + (int)IS_MOVE8_LEGAL);
 	
 	ClearBoard();
 	DispBoard ();
