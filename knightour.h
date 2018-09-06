@@ -70,7 +70,7 @@ bool MOVE8_OK(int x, int y, int MoveAvailable);
 int BoardValue_XY(int x, int y, int moveNumber);
 
 //returns how many moves for the Knight are available at a given location in the board
-int DetermineMoves(int x, int y);
+U_Int8 DetermineMoves(U_Int8 x, U_Int8 y);
 
 //Display the board in the console
 void DispBoard (void);
