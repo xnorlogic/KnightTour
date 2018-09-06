@@ -48,7 +48,7 @@ U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber);
 
 U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber);
 
-int SelectData_INDEX(int Array[]);
+U_Int8 Sort_Array(U_Int8 Array[8]);
 
 bool MOVE1_OK(int x, int y, int MoveAvailable);
 
@@ -88,7 +88,7 @@ void CreateMoves (void);
 //--------------------------------------------------------------------------------------------
 //Logic for the KnightTour solution-----------------------------------------------------------
 //returns next move based on how many moves for the knight are available at a given position
-int NextMove(int x,int y);
+U_Int8 NextMove(U_Int8 x,U_Int8 y);
 
 //PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
 void PerformMove(int x, int y, int moveNumber, int marker);

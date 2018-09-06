@@ -62,21 +62,35 @@ U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber){
 	return y;
 }
 
-int SelectData_INDEX(int Array[]){
+U_Int8 Sort_Array(U_Int8 Array[8]){
 
-	int TMP = Array[0];
-	int Index = 0;
-	int T;
+	U_Int8 TMP = 0;
+	U_Int8 T;
+	U_Int8 swap_flag = 0;
+	U_Int8 move_array[8] = {1,2,3,4,5,6,7,8};
 	
-	for(T=1;T<8;T++){
-		if(Array[T]<TMP && Array[T] !=0)
-		{
-			TMP = Array[T];
-			Index = T;
+	do{	
+		swap_flag = 0;
+		for(T=0;T<7;T++){
+			if(Array[T]>Array[T+1]){
+				/*swap the array move element to sort the lowest possible move to the start of the array*/
+				TMP = Array[T];
+				Array[T] = Array[T+1];
+				Array[T+1];
+				/*swap  the moves array as a mirror in order to have the best next move*/
+				TMP = move_array[T];
+				move_array[T]  = move_array[T+1];
+				move_array[T+1] = TMP;
+				/*swap happened*/
+				swap_flag = 1;				
+			}
+			else{
+				/*no change*/
+			}
 		}
-	}
+	}while(swap_flag);
 	
-	return Index;
+	return move_array[0];
 }
 
 bool MOVE1_OK(int x, int y, int MoveAvailable){
@@ -281,69 +295,77 @@ void CreateMoves (void){
 //--------------------------------------------------------------------------------------------
 //Logic for the KnightTour solution-----------------------------------------------------------
 //returns next move based on how many moves for the knight are available at a given position
-int NextMove(int x,int y){
+U_Int8 NextMove(U_Int8 x,U_Int8 y){
 
-	int MOVES [8] = {0,0,0,0,0,0,0,0};
-	int Location [8] = {0,0,0,0,0,0,0,0};
-	int Jumps = 0;
+    U_Int8 ghost_x;
+	U_Int8 ghost_y;
+	U_Int8 moveNumber = 1;
+	U_Int8 moves[8] = {255,255,255,255,255,255,255,255};
 	
-	if (MOVE1_OK(x,y,BoardValue_XY(x,y,Move1))){
-		MOVES[Jumps] = DetermineMoves(x+2,y+1);
-		Location[Jumps] = Move1;
-		Jumps++;
+	for (moveNumber = 1;moveNumber<=8;moveNumber++){
+		
+		switch (moveNumber){
+					case 1:
+					ghost_x = X_PLUS_2;
+					ghost_y = Y_PLUS_1;
+					break;
+					
+					case 2:
+					ghost_x = X_PLUS_2;
+					ghost_y = Y_MINUS_1;
+					break;
+					
+					case 3:
+					ghost_x = X_PLUS_1;
+					ghost_y = Y_PLUS_2;
+					break;
+					
+					case 4:
+					ghost_x = X_PLUS_1;
+					ghost_y = Y_MINUS_2;
+					break;
+					
+					case 5:
+					ghost_x = X_MINUS_2;
+					ghost_y = Y_PLUS_1;
+					break;
+					
+					case 6:
+					ghost_x = X_MINUS_2;
+					ghost_y = Y_MINUS_1;
+					break;
+					
+					case 7:
+					ghost_x = X_MINUS_1;
+					ghost_y = Y_PLUS_2;
+					break;
+					
+					case 8:
+					ghost_x = X_MINUS_1;
+					ghost_y = Y_MINUS_2;
+					break;
+					
+					default : 
+					ghost_x = x + 0;
+					ghost_y = y + 0;
+					break;
+				} 
+		
+		if ((((ghost_x) >= 0) && ((ghost_x) <= 7)) && (((ghost_y) >= 0) && ((ghost_y) <= 7))){
+			if(BoardValue_XY(ghost_x,ghost_y,moveNumber) == 0){
+				moves[moveNumber] = DetermineMoves(ghost_x,ghost_y);
+			}
+			else{
+				/*move not valid... move has been allready taken*/
+			}
+		}
+		else{
+			/*move not valid... out of bounce!*/
+		}
+		
 	}
-	else{Jumps=Jumps;}
 	
-	if (MOVE2_OK(x,y,BoardValue_XY(x,y,Move2))){
-		MOVES[Jumps] = DetermineMoves(x+2,y-1);
-		Location[Jumps] = Move2;
-		Jumps++;
-	}
-	else{Jumps=Jumps;}
-	
-	if (MOVE3_OK(x,y,BoardValue_XY(x,y,Move3))){
-		MOVES[Jumps] = DetermineMoves(x+1,y+2);
-		Location[Jumps] = Move3;
-		Jumps++;
-	}
-	else{Jumps=Jumps;}
-	
-	if (MOVE4_OK(x,y,BoardValue_XY(x,y,Move4))){
-		MOVES[Jumps] = DetermineMoves(x+1,y-2);
-		Location[Jumps] = Move4;
-		Jumps++;
-	}
-	else{Jumps=Jumps;}
-	
-	if (MOVE5_OK(x,y,BoardValue_XY(x,y,Move5))){
-		MOVES[Jumps] = DetermineMoves(x-2,y+1);
-		Location[Jumps] = Move5;
-		Jumps++;
-	}
-	else{Jumps=Jumps;}
-	
-	if (MOVE6_OK(x,y,BoardValue_XY(x,y,Move6))){
-		MOVES[Jumps] = DetermineMoves(x-2,y-1);
-		Location[Jumps] = Move6;
-		Jumps++;
-	}
-	else{Jumps=Jumps;}
-	
-	if (MOVE7_OK(x,y,BoardValue_XY(x,y,Move7))){
-		MOVES[Jumps] = DetermineMoves(x-1,y+2);
-		Location[Jumps] = Move7;
-		Jumps++;
-	}
-	else{Jumps=Jumps;}
-	
-	if (MOVE8_OK(x,y,BoardValue_XY(x,y,Move8))){
-		MOVES[Jumps] = DetermineMoves(x-1,y-2);
-		Location[Jumps] = Move8;
-		Jumps++;
-	}
-	else{Jumps=Jumps;}
-	
-	return Location[SelectData_INDEX(MOVES)];
+	return Sort_Array(moves);
 }
 
 //PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
