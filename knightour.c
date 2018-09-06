@@ -93,94 +93,6 @@ U_Int8 Sort_Array(U_Int8 Array[8]){
 	return move_array[0];
 }
 
-bool MOVE1_OK(int x, int y, int MoveAvailable){
-	if(IS_MOVE1_LEGAL && MoveAvailable == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool MOVE2_OK(int x, int y, int MoveAvailable){
-	if(IS_MOVE2_LEGAL && MoveAvailable == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool MOVE3_OK(int x, int y, int MoveAvailable){
-	if(IS_MOVE3_LEGAL && MoveAvailable == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool MOVE4_OK(int x, int y, int MoveAvailable){
-	if(IS_MOVE4_LEGAL && MoveAvailable == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool MOVE5_OK(int x, int y, int MoveAvailable){
-	if(IS_MOVE5_LEGAL && MoveAvailable == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool MOVE6_OK(int x, int y, int MoveAvailable){
-	if(IS_MOVE6_LEGAL && MoveAvailable == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool MOVE7_OK(int x, int y, int MoveAvailable){
-	if(IS_MOVE7_LEGAL && MoveAvailable == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool MOVE8_OK(int x, int y, int MoveAvailable){
-	if(IS_MOVE8_LEGAL && MoveAvailable == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
 //Returns the value at a given location
 U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y, U_Int8 moveNumber){
     /*
@@ -261,8 +173,8 @@ void WriteToFile (char Location[]){
     fp = fopen(Location, "a");
 	
 	fprintf(fp," \n ");
-	for (int R = 0; R<ROW; R++){
-		for (int C =0; C<COL; C++){
+	for (U_Int8 R = 0; R<ROW; R++){
+		for (U_Int8 C =0; C<COL; C++){
 			fprintf(fp, " %2d ", Board [R][C]);
 		}
 		fprintf(fp," \n ");
@@ -273,8 +185,8 @@ void WriteToFile (char Location[]){
 
 //Genereates initial empty board with zeros
 void ClearBoard (void){
-	for (int R = 0; R<ROW; R++){
-		for (int C =0; C<COL; C++){
+	for (U_Int8 R = 0; R<ROW; R++){
+		for (U_Int8 C =0; C<COL; C++){
 			Board [R][C] = 0;
 		}
 	}
@@ -283,9 +195,9 @@ void ClearBoard (void){
 //This is a prototype to generate all moves available at the initial stage of the board. 
 //(No necessary for the solution)
 void CreateMoves (void){
-	for (int R = 0; R<ROW; R++)
+	for (U_Int8 R = 0; R<ROW; R++)
 	{
-		for (int C =0; C<COL; C++)
+		for (U_Int8 C =0; C<COL; C++)
 		{
 			Board [R][C] = DetermineMoves(R,C);
 		}

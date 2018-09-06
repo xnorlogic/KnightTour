@@ -14,7 +14,7 @@ typedef unsigned char U_Int8;
 #define COL 8
 
 /*Chess board*/
-int Board[ROW][COL];
+U_Int8 Board[ROW][COL];
 
 /*knight xy move combination*/
 #define X_PLUS_2 x + 2
@@ -49,22 +49,6 @@ U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber);
 U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber);
 
 U_Int8 Sort_Array(U_Int8 Array[8]);
-
-bool MOVE1_OK(int x, int y, int MoveAvailable);
-
-bool MOVE2_OK(int x, int y, int MoveAvailable);
-
-bool MOVE3_OK(int x, int y, int MoveAvailable);
-
-bool MOVE4_OK(int x, int y, int MoveAvailable);
-
-bool MOVE5_OK(int x, int y, int MoveAvailable);
-
-bool MOVE6_OK(int x, int y, int MoveAvailable);
-
-bool MOVE7_OK(int x, int y, int MoveAvailable);
-
-bool MOVE8_OK(int x, int y, int MoveAvailable);
 
 //Returns the value at a given location
 U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y, U_Int8 moveNumber);
