@@ -3,7 +3,6 @@
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 	switch (moveNumber){
 			case 1:x = x + 2;//Perform 34
-			`
 			break;
 			
 			case 2:x = x + 2;//Perform Move2
