@@ -101,6 +101,7 @@ int main(){
 	
 	ClearBoard();
 	CreateMoves ();
+	DispBoard ();
 	
 	return 0;
 }
