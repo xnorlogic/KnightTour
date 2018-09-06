@@ -148,7 +148,7 @@ U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	U_Int8 M5 = IS_MOVE5_LEGAL && (BoardValue_XY(x,y,5) == 0);
 	U_Int8 M6 = IS_MOVE6_LEGAL && (BoardValue_XY(x,y,6) == 0);
 	U_Int8 M7 = IS_MOVE7_LEGAL && (BoardValue_XY(x,y,7) == 0);
-	U_Int8 M8 = IS_MOVE8_LEGAL && (BoardValue_XY(x,y,7) == 0);
+	U_Int8 M8 = IS_MOVE8_LEGAL && (BoardValue_XY(x,y,8) == 0);
 	
 	possibleMoves = M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8;
 	
