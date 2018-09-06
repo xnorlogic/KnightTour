@@ -213,81 +213,8 @@ int BoardValue_XY(int x, int y, int moveNumber){
 
 //returns how many moves for the Knight are available at a given location in the board
 int DetermineMoves(int x, int y){
-
 	int possibleMoves = 0;
-	
-	if(MOVE1_OK(x,y,BoardValue_XY(x,y,Move1)))
-	{
-		possibleMoves++;
-	}
-	else
-	{
-		possibleMoves=possibleMoves;
-	}
-		
-	if(MOVE2_OK(x,y,BoardValue_XY(x,y,Move2)))
-	{
-		possibleMoves++;
-	}
-	else
-	{
-		possibleMoves=possibleMoves;
-	}
-		
-	if(MOVE3_OK(x,y,BoardValue_XY(x,y,Move3)))
-	{
-		possibleMoves++;
-	}
-	else
-	{
-		possibleMoves=possibleMoves;
-	}
-		
-	if(MOVE4_OK(x,y,BoardValue_XY(x,y,Move4)))
-	{
-		possibleMoves++;
-	}
-	else
-	{
-		possibleMoves=possibleMoves;
-	}
-		
-	if(MOVE5_OK(x,y,BoardValue_XY(x,y,Move5)))
-	{
-		possibleMoves++;
-	}
-	else
-	{
-		possibleMoves=possibleMoves;
-	}
-		
-	if(MOVE6_OK(x,y,BoardValue_XY(x,y,Move6)))
-	{
-		possibleMoves++;
-	}
-	else
-	{
-		possibleMoves=possibleMoves;
-	}
-	
-	if(MOVE7_OK(x,y,BoardValue_XY(x,y,Move7)))
-	{
-		possibleMoves++;
-	}
-	else
-	{
-		possibleMoves=possibleMoves;
-	}
-		
-	if(MOVE8_OK(x,y,BoardValue_XY(x,y,Move8)))
-	{
-		possibleMoves++;
-	}
-	else
-	{
-		possibleMoves=possibleMoves;
-	}
-	
+	possibleMoves = IS_MOVE1_LEGAL + IS_MOVE2_LEGAL + IS_MOVE3_LEGAL + IS_MOVE4_LEGAL + IS_MOVE5_LEGAL + IS_MOVE6_LEGAL + IS_MOVE7_LEGAL + IS_MOVE8_LEGAL;
 	return possibleMoves;
 }
 
