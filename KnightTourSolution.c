@@ -98,10 +98,7 @@ int main(){
 	DispBoard ();
 	
 	printf("\n %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y));
-	
-	ClearBoard();
-	CreateMoves ();
-	DispBoard ();
+	printf("\n %d \n ",NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y));
 	
 	return 0;
 }
