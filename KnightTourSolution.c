@@ -83,17 +83,17 @@ int main(){
 	DispBoard ();
 	
 	ClearBoard();
-	PerformMove(x, y, 0, 1);
-	x = x;
-	y = y;
+	x = NEW_X(x,0);
+	y = NEW_Y(y,0);
+	Board[x][y] = 1;
 	DispBoard ();
-	PerformMove(x, y, 1, 2);
-	x = x;
-	y = y;
+	x = NEW_X(x,1);
+	y = NEW_Y(y,1);
+	Board[x][y] = 2;
 	DispBoard ();
-	PerformMove(x, y, 1, 3);
-	x = x;
-	y = y;
+	x = NEW_X(x,1);
+	y = NEW_Y(y,1);
+	Board[x][y] = 3;
 	DispBoard ();
 	
 	return 0;
