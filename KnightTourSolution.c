@@ -80,18 +80,21 @@ int main(){
 	CreateMoves();
 	DispBoard ();
 	
+	White_Knight_1_Location.x=0;
+	White_Knight_1_Location.y=0;
+	
 	ClearBoard();
-	x = NEW_X(x,0);
-	y = NEW_Y(y,0);
-	Board[x][y] = 1;
+	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,0);
+	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,0);
+	Board[White_Knight_1_Location.x][yWhite_Knight_1_Location.y] = 1;
 	DispBoard ();
-	x = NEW_X(x,1);
-	y = NEW_Y(y,1);
-	Board[x][y] = 2;
+	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,1);
+	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,1);
+	Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = 2;
 	DispBoard ();
-	x = NEW_X(x,1);
-	y = NEW_Y(y,1);
-	Board[x][y] = 3;
+	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,1);
+	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,1);
+	Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = 3;
 	DispBoard ();
 	
 	return 0;

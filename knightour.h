@@ -35,9 +35,6 @@ U_Int8 Board[ROW][COL];
 #define IS_MOVE6_LEGAL (((X_MINUS_2) >= 0) && ((X_MINUS_2) <= 7)) && (((Y_MINUS_1) >= 0) && ((Y_MINUS_1) <= 7))
 #define IS_MOVE7_LEGAL (((X_MINUS_1) >= 0) && ((X_MINUS_1) <= 7)) && (((Y_PLUS_2)  <= 7) && ((Y_PLUS_2)  >= 0))
 #define IS_MOVE8_LEGAL (((X_MINUS_1) >= 0) && ((X_MINUS_1) <= 7)) && (((Y_MINUS_2) >= 0) && ((Y_MINUS_2) <= 7))
- 
-//Enumerator for the knight moves
-enum Knight_Moves {NULLmove, Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8};
 
 typedef struct Chess_Piece_Location{
 	U_Int8 x;
