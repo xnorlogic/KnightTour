@@ -65,39 +65,22 @@ int main(){
 	fclose(fp);
 	printf("\n Solutions Completed \n ");
 	
-	U_Int8 x = 0;
-	U_Int8 y = 0;
-	
-	printf("\n %d \n ",IS_MOVE1_LEGAL);
-	printf("\n %d \n ",IS_MOVE2_LEGAL);
-	printf("\n %d \n ",IS_MOVE3_LEGAL);
-	printf("\n %d \n ",IS_MOVE4_LEGAL);
-	printf("\n %d \n ",IS_MOVE5_LEGAL);
-	printf("\n %d \n ",IS_MOVE6_LEGAL);
-	printf("\n %d \n ",IS_MOVE7_LEGAL);
-	printf("\n %d \n ",IS_MOVE8_LEGAL);
-
-	ClearBoard();
-	DispBoard ();
-	CreateMoves();
-	DispBoard ();
-	
 	White_Knight_1_Location.x=0;
 	White_Knight_1_Location.y=0;
 	
 	ClearBoard();
-	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,0);
-	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,0);
-	Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = 1;
-	DispBoard ();
-	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,1);
-	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,1);
-	Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = 2;
-	DispBoard ();
-	White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,1);
-	White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,1);
-	Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = 3;
-	DispBoard ();
+	
+	BestNextMove = 0;
+	
+	for (U_Int8 CNT=1;CNT<65;CNT++){	
+	
+		White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
+		White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
+		Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = CNT;
+		DispBoard ();
+		BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
+	
+	}
 	
 	return 0;
 }
