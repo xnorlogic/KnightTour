@@ -182,7 +182,7 @@ bool MOVE8_OK(int x, int y, int MoveAvailable){
 }
 
 //Returns the value at a given location
-int BoardValue_XY(int x, int y, int moveNumber){
+U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y, U_Int8 moveNumber){
     /*
 	Posible moves for the knight
 	Board[x + 2][y + 1]
@@ -194,7 +194,7 @@ int BoardValue_XY(int x, int y, int moveNumber){
 	Board[x - 1][y + 2]
 	Board[x - 1][y - 2]
 	*/
-	int BoardValue = 0;
+	U_Int8 BoardValue = 0;
 	switch (moveNumber){
 			case 1:BoardValue = Board[x + 2][y + 1];
 			break;

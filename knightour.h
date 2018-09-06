@@ -67,7 +67,7 @@ bool MOVE7_OK(int x, int y, int MoveAvailable);
 bool MOVE8_OK(int x, int y, int MoveAvailable);
 
 //Returns the value at a given location
-int BoardValue_XY(int x, int y, int moveNumber);
+U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y, U_Int8 moveNumber);
 
 //returns how many moves for the Knight are available at a given location in the board
 U_Int8 DetermineMoves(U_Int8 x, U_Int8 y);
