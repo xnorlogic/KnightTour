@@ -262,16 +262,12 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 					break;
 				} 
 		
-		if ((((ghost_x) >= 0) && ((ghost_x) <= 7)) && (((ghost_y) >= 0) && ((ghost_y) <= 7))){
-			if(BoardValue_XY(ghost_x,ghost_y,moveNumber + 1) == 0){
-				moves[moveNumber] = DetermineMoves(ghost_x,ghost_y);
-			}
-			else{
-				/*move not valid... move has been allready taken*/
-			}
+		if ((((ghost_x) >= 0) && ((ghost_x) <= 7)) && (((ghost_y) >= 0) && ((ghost_y) <= 7)) && BoardValue_XY(ghost_x,ghost_y,moveNumber + 1) == 0){
+			moves[moveNumber] = DetermineMoves(ghost_x,ghost_y);
 		}
 		else{
 			/*move not valid... out of bounce!*/
+			/*move not valid... move has been allready taken*/
 		}
 		
 	}
