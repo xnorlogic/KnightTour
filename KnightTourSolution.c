@@ -37,11 +37,9 @@ int main(){
 			for (U_Int8 CNT=1;CNT<65;CNT++){	
 				
 				//Perform a Move
-				PerformMove(White_Knight_1_Location.x, White_Knight_1_Location.y, BestNextMove, CNT);
-				
-				//Relocate the Knight
-				White_Knight_1_Location.x = White_Knight_1_Location.x;
-				White_Knight_1_Location.y = White_Knight_1_Location.y;
+				White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
+				White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
+				Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = CNT;
 				
 				//Determine number of moves available from the current location of the Knight
 				NumberOfMoves = DetermineMoves(White_Knight_1_Location.x, White_Knight_1_Location.y);
