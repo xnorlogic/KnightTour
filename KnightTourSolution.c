@@ -99,6 +99,8 @@ int main(){
 	
 	printf("\n %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y));
 	
-
+	ClearBoard();
+	CreateMoves ();
+	
 	return 0;
 }
