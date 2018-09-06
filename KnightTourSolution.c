@@ -14,8 +14,8 @@ int main(){
 	char Location_Solution[] = "KnightTourOutput.txt";
 	char Location_Moves[] = "MovesStatus.txt";
 
-	int NumberOfMoves = 0;
-	int BestNextMove;
+	U_Int8 NumberOfMoves = 0;
+	U_Int8 BestNextMove;
 	
 	FILE *fp;
     fp = fopen(Location_Moves, "a");
@@ -65,8 +65,8 @@ int main(){
 	fclose(fp);
 	printf("\n Solutions Completed \n ");
 	
-	int x = 0;
-	int y = 0;
+	U_Int8 x = 0;
+	U_Int8 y = 0;
 	
 	printf("\n %d \n ",IS_MOVE1_LEGAL);
 	printf("\n %d \n ",IS_MOVE2_LEGAL);
