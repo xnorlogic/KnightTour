@@ -65,8 +65,8 @@ int main(){
 	fclose(fp);
 	printf("\n Solutions Completed \n ");
 	
-	U_Int8 x = 0;
-	U_Int8 y = 0;
+	U_Int8 x = 4;
+	U_Int8 y = 4;
 	
 	printf("\n %d \n ",IS_MOVE1_LEGAL);
 	printf("\n %d \n ",IS_MOVE2_LEGAL);
@@ -83,11 +83,11 @@ int main(){
 	DispBoard ();
 	
 	ClearBoard();
-	PerformMove(0, 0, 1, 1);
+	PerformMove(x, y, 0, 1);
 	DispBoard ();
-	PerformMove(4, 4, 0, 1);
+	PerformMove(x, y, 1, 2);
 	DispBoard ();
-	PerformMove(4, 4, 1, 2);
+	PerformMove(x, y, 1, 3);
 	DispBoard ();
 	
 	return 0;
