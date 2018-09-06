@@ -214,7 +214,16 @@ int BoardValue_XY(int x, int y, int moveNumber){
 //returns how many moves for the Knight are available at a given location in the board
 int DetermineMoves(int x, int y){
 	int possibleMoves = 0;
-	possibleMoves = IS_MOVE1_LEGAL + IS_MOVE2_LEGAL + IS_MOVE3_LEGAL + IS_MOVE4_LEGAL + IS_MOVE5_LEGAL + IS_MOVE6_LEGAL + IS_MOVE7_LEGAL + IS_MOVE8_LEGAL;
+	U_Int8 M1 = IS_MOVE1_LEGAL;
+	U_Int8 M2 = IS_MOVE2_LEGAL;
+	U_Int8 M3 = IS_MOVE3_LEGAL;
+	U_Int8 M4 = IS_MOVE4_LEGAL;
+	U_Int8 M5 = IS_MOVE5_LEGAL;
+	U_Int8 M6 = IS_MOVE6_LEGAL;
+	U_Int8 M7 = IS_MOVE7_LEGAL;
+	U_Int8 M8 = IS_MOVE8_LEGAL;
+	possibleMoves = M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8;
+	
 	return possibleMoves;
 }
 
