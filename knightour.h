@@ -40,8 +40,8 @@ int Board[ROW][COL];
 enum Knight_Moves {NULLmove, Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8};
 
 typedef struct Chess_Piece_Location{
-	int x;
-	int y;
+	U_Int8 x;
+	U_Int8 y;
 }Chess_Piece_Location;
 
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber);
@@ -91,7 +91,7 @@ void CreateMoves (void);
 U_Int8 NextMove(U_Int8 x,U_Int8 y);
 
 //PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
-void PerformMove(int x, int y, int moveNumber, int marker);
+void PerformMove(U_Int8 x, U_Int8 y, U_Int8 moveNumber, U_Int8 marker);
 //--------------------------------------------------------------------------------------------
 
 #endif /* */

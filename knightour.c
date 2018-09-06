@@ -369,7 +369,7 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 }
 
 //PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
-void PerformMove(int x, int y, int moveNumber, int marker){
+void PerformMove(U_Int8 x, U_Int8 y, U_Int8 moveNumber, U_Int8 marker){
 
 	x = NEW_X(x,moveNumber);
 	y = NEW_Y(y,moveNumber);
