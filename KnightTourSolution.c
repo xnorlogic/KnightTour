@@ -82,5 +82,13 @@ int main(){
 	CreateMoves();
 	DispBoard ();
 	
+	ClearBoard();
+	PerformMove(0, 0, 1, 1);
+	DispBoard ();
+	PerformMove(4, 4, 0, 1);
+	DispBoard ();
+	PerformMove(4, 4, 1, 2);
+	DispBoard ();
+	
 	return 0;
 }
