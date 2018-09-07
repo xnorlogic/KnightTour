@@ -28,7 +28,7 @@ int main(void){
 	printf("\n Solutions Completed \n ");
 	
 	/*solve the knight tour from the start location 5,1 with some display*/
-	Solve_KnightTour(5,1,1);
+	Solve_KnightTour(0,2,1);
 
 	return 0;
 }
