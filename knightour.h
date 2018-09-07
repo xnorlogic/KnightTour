@@ -17,12 +17,12 @@ typedef unsigned char U_Int8;
 U_Int8 Board[ROW][COL];
 
 /*knight xy move combination*/
-#define X_PLUS_2 x + 2
-#define X_PLUS_1 x + 1
+#define X_PLUS_2  x + 2
+#define X_PLUS_1  x + 1
 #define X_MINUS_2 x - 2
 #define X_MINUS_1 x - 1
-#define Y_PLUS_2 y + 2
-#define Y_PLUS_1 y + 1
+#define Y_PLUS_2  y + 2
+#define Y_PLUS_1  y + 1
 #define Y_MINUS_2 y - 2
 #define Y_MINUS_1 y - 1
 
@@ -41,14 +41,21 @@ typedef struct Chess_Piece_Location{
 	U_Int8 y;
 }Chess_Piece_Location;
 
+//Structure to hold location of particular piece on the board...
+//This is the White Knight 1
+Chess_Piece_Location White_Knight_1_Location;
+
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber);
 
 U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber);
 
 U_Int8 Sort_Array(U_Int8 Array[8]);
 
+//Returns the value at a given offset location
+U_Int8 BoardValue_XY_offset(U_Int8 x, U_Int8 y, U_Int8 moveNumber);
+
 //Returns the value at a given location
-U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y, U_Int8 moveNumber);
+U_Int8 BoardValue_XY(U_Int8 x, U_Int8);
 
 //returns how many moves for the Knight are available at a given location in the board
 U_Int8 DetermineMoves(U_Int8 x, U_Int8 y);
@@ -64,7 +71,7 @@ void ClearBoard (void);
 
 //This is a prototype to generate all moves available at the initial stage of the board. 
 //(No necessary for the solution)
-void CreateMoves (void);
+void Solve_KnightTour (U_Int8 x, U_Int8);
 
 //--------------------------------------------------------------------------------------------
 //Logic for the KnightTour solution-----------------------------------------------------------

@@ -1,5 +1,17 @@
 #include "knightour.h"
 
+/*
+Possible moves for the knight
+Board[x + 2][y + 1]
+Board[x + 2][y - 1]
+Board[x + 1][y + 2]
+Board[x + 1][y - 2]
+Board[x - 2][y + 1]
+Board[x - 2][y - 1]
+Board[x - 1][y + 2]
+Board[x - 1][y - 2]
+*/
+
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 	switch (moveNumber){
 			case 1:x = x + 2;//Perform 34
@@ -26,7 +38,7 @@ U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 			case 8:x = x - 1;//Perform Move8
 			break;
 			
-			default: x = x;
+			default: x = x + 0;
 		} 
 	return x;
 }
@@ -57,7 +69,7 @@ U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber){
 				case 8:y = y - 2;//Perform Move8
 				break;
 				
-				default : y = y;
+				default : y = y + 0;
 			} 
 	return y;
 }
@@ -76,7 +88,7 @@ U_Int8 Sort_Array(U_Int8 Array[8]){
 				/*swap the array move element to sort the lowest possible move to the start of the array*/
 				TMP = Array[T];
 				Array[T] = Array[T+1];
-				Array[T+1];
+				Array[T+1] = TMP;
 				/*swap  the moves array as a mirror in order to have the best next move*/
 				TMP = move_array[T];
 				move_array[T]  = move_array[T+1];
@@ -93,62 +105,56 @@ U_Int8 Sort_Array(U_Int8 Array[8]){
 	return move_array[0];
 }
 
-//Returns the value at a given location
-U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y, U_Int8 moveNumber){
-    /*
-	Posible moves for the knight
-	Board[x + 2][y + 1]
-	Board[x + 2][y - 1]
-	Board[x + 1][y + 2]
-	Board[x + 1][y - 2]
-	Board[x - 2][y + 1]
-	Board[x - 2][y - 1]
-	Board[x - 1][y + 2]
-	Board[x - 1][y - 2]
-	*/
+//Returns the value at a given offset location location with
+U_Int8 BoardValue_XY_offset(U_Int8 x, U_Int8 y, U_Int8 moveNumber){
 	U_Int8 BoardValue = 0;
 	switch (moveNumber){
 			case 1:BoardValue = Board[x + 2][y + 1];
 			break;
-			
+
 			case 2:BoardValue = Board[x + 2][y - 1];
 			break;
-			
+
 			case 3:BoardValue = Board[x + 1][y + 2];
 			break;
-			
+
 			case 4:BoardValue = Board[x + 1][y - 2];
 			break;
-			
+
 			case 5:BoardValue = Board[x - 2][y + 1];
 			break;
-			
+
 			case 6:BoardValue = Board[x - 2][y - 1];
 			break;
-			
+
 			case 7:BoardValue = Board[x - 1][y + 2];
 			break;
-			
+
 			case 8:BoardValue = Board[x - 1][y - 2];
 			break;
-			
-			default: BoardValue = BoardValue;
-		} 
+
+			default: BoardValue = BoardValue + 0;
+		}
 	return BoardValue;
+}
+
+//Returns the value at a given location
+U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y){
+	return Board[x][y];
 }
 
 //returns how many moves for the Knight are available at a given location in the board
 U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	
 	U_Int8 possibleMoves = 0;
-	U_Int8 M1 = IS_MOVE1_LEGAL && (BoardValue_XY(x,y,1) == 0);
-	U_Int8 M2 = IS_MOVE2_LEGAL && (BoardValue_XY(x,y,2) == 0);
-	U_Int8 M3 = IS_MOVE3_LEGAL && (BoardValue_XY(x,y,3) == 0);
-	U_Int8 M4 = IS_MOVE4_LEGAL && (BoardValue_XY(x,y,4) == 0);
-	U_Int8 M5 = IS_MOVE5_LEGAL && (BoardValue_XY(x,y,5) == 0);
-	U_Int8 M6 = IS_MOVE6_LEGAL && (BoardValue_XY(x,y,6) == 0);
-	U_Int8 M7 = IS_MOVE7_LEGAL && (BoardValue_XY(x,y,7) == 0);
-	U_Int8 M8 = IS_MOVE8_LEGAL && (BoardValue_XY(x,y,8) == 0);
+	U_Int8 M1 = IS_MOVE1_LEGAL && (BoardValue_XY_offset(x,y,1) == 0);
+	U_Int8 M2 = IS_MOVE2_LEGAL && (BoardValue_XY_offset(x,y,2) == 0);
+	U_Int8 M3 = IS_MOVE3_LEGAL && (BoardValue_XY_offset(x,y,3) == 0);
+	U_Int8 M4 = IS_MOVE4_LEGAL && (BoardValue_XY_offset(x,y,4) == 0);
+	U_Int8 M5 = IS_MOVE5_LEGAL && (BoardValue_XY_offset(x,y,5) == 0);
+	U_Int8 M6 = IS_MOVE6_LEGAL && (BoardValue_XY_offset(x,y,6) == 0);
+	U_Int8 M7 = IS_MOVE7_LEGAL && (BoardValue_XY_offset(x,y,7) == 0);
+	U_Int8 M8 = IS_MOVE8_LEGAL && (BoardValue_XY_offset(x,y,8) == 0);
 	
 	possibleMoves = M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8;
 	
@@ -193,13 +199,31 @@ void ClearBoard (void){
 
 //This is a prototype to generate all moves available at the initial stage of the board. 
 //(No necessary for the solution)
-void CreateMoves (void){
-	for (U_Int8 R = 0; R<ROW; R++)
-	{
-		for (U_Int8 C =0; C<COL; C++)
-		{
-			Board [R][C] = DetermineMoves(R,C);
-		}
+void Solve_KnightTour (U_Int8 x, U_Int8 y){
+	U_Int8 BestNextMove;
+	/*perform a solution and show the step by step*/
+	/*initial position*/
+	White_Knight_1_Location.x=x;
+	White_Knight_1_Location.y=y;
+	/*clear the board*/
+	ClearBoard();
+	/*set the best next move to zero for the first pass*/
+	BestNextMove = 0;
+
+	/*loop through the chess board*/
+	for (U_Int8 CNT=1;CNT<65;CNT++){
+		/*print some data of the steps*/
+		printf("\n loop: %d \n ",CNT);
+		printf("# of move: %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y));
+		printf("next move ID: %d \n ",BestNextMove);
+		/*move the knight*/
+		White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
+		White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
+		Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = CNT;
+		/*find the best next move for the knight*/
+		BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
+		/*display the board at this step*/
+		DispBoard ();
 	}
 }
 
@@ -213,47 +237,47 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 	U_Int8 moveNumber = 0;
 	U_Int8 moves[8] = {255,255,255,255,255,255,255,255};
 	
-	for (moveNumber = 0;moveNumber<7;moveNumber++){
+	for (moveNumber = 0;moveNumber<8;moveNumber++){
 		
 		switch (moveNumber + 1){
 					case 1:
-					ghost_x = X_PLUS_2;
-					ghost_y = Y_PLUS_1;
+					ghost_x = x + 2;
+					ghost_y = y + 1 ;
 					break;
 					
 					case 2:
-					ghost_x = X_PLUS_2;
-					ghost_y = Y_MINUS_1;
+					ghost_x = x + 2;
+					ghost_y = y - 1;
 					break;
 					
 					case 3:
-					ghost_x = X_PLUS_1;
-					ghost_y = Y_PLUS_2;
+					ghost_x = x + 1;
+					ghost_y = y + 2;
 					break;
 					
 					case 4:
-					ghost_x = X_PLUS_1;
-					ghost_y = Y_MINUS_2;
+					ghost_x = x + 1;
+					ghost_y = y - 2;
 					break;
 					
 					case 5:
-					ghost_x = X_MINUS_2;
-					ghost_y = Y_PLUS_1;
+					ghost_x = x - 2;
+					ghost_y = y + 1;
 					break;
 					
 					case 6:
-					ghost_x = X_MINUS_2;
-					ghost_y = Y_MINUS_1;
+					ghost_x = x - 2;
+					ghost_y = y - 1;
 					break;
 					
 					case 7:
-					ghost_x = X_MINUS_1;
-					ghost_y = Y_PLUS_2;
+					ghost_x = x - 1;
+					ghost_y = y + 2;
 					break;
 					
 					case 8:
-					ghost_x = X_MINUS_1;
-					ghost_y = Y_MINUS_2;
+					ghost_x = x - 1;
+					ghost_y = y - 2;
 					break;
 					
 					default : 
@@ -261,8 +285,8 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 					ghost_y = y + 0;
 					break;
 				} 
-		
-		if ((((ghost_x) >= 0) && ((ghost_x) <= 7)) && (((ghost_y) >= 0) && ((ghost_y) <= 7)) && BoardValue_XY(ghost_x,ghost_y,moveNumber + 1) == 0){
+		/*check if inbounds and a non occupied move*/
+		if ((((ghost_x) >= 0) && ((ghost_x) <= 7)) && (((ghost_y) >= 0) && ((ghost_y) <= 7)) && BoardValue_XY(ghost_x,ghost_y) == 0){
 			moves[moveNumber] = DetermineMoves(ghost_x,ghost_y);
 		}
 		else{
