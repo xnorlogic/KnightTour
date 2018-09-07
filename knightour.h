@@ -6,9 +6,6 @@
 typedef unsigned char bool;
 typedef unsigned char U_Int8;
 
-#define true 1
-#define false 1
-
 //Board Size
 #define ROW 8
 #define COL 8
@@ -66,20 +63,14 @@ void DispBoard (void);
 //Write the board to a txt file
 void WriteToFile (char Location[]);
 
-//Genereates initial empty board with zeros
+//Generates initial empty board with zeros
 void ClearBoard (void);
 
-//This is a prototype to generate all moves available at the initial stage of the board. 
-//(No necessary for the solution)
-void Solve_KnightTour (U_Int8 x, U_Int8);
+//solve the knight tour
+void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag);
 
-//--------------------------------------------------------------------------------------------
 //Logic for the KnightTour solution-----------------------------------------------------------
 //returns next move based on how many moves for the knight are available at a given position
 U_Int8 NextMove(U_Int8 x,U_Int8 y);
-
-//PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
-void PerformMove(U_Int8 x, U_Int8 y, U_Int8 moveNumber, U_Int8 marker);
-//--------------------------------------------------------------------------------------------
 
 #endif /* */

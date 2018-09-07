@@ -101,7 +101,7 @@ U_Int8 Sort_Array(U_Int8 Array[8]){
 			}
 		}
 	}while(swap_flag);
-	
+	/*return the corresponding move based on the sort*/
 	return move_array[0];
 }
 
@@ -188,7 +188,7 @@ void WriteToFile (char Location[]){
 	fclose(fp);
 }
 
-//Genereates initial empty board with zeros
+//Generates initial empty board with zeros
 void ClearBoard (void){
 	for (U_Int8 R = 0; R<ROW; R++){
 		for (U_Int8 C =0; C<COL; C++){
@@ -197,9 +197,8 @@ void ClearBoard (void){
 	}
 }
 
-//This is a prototype to generate all moves available at the initial stage of the board. 
-//(No necessary for the solution)
-void Solve_KnightTour (U_Int8 x, U_Int8 y){
+//solve the knight tour
+void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	U_Int8 BestNextMove;
 	/*perform a solution and show the step by step*/
 	/*initial position*/
@@ -212,22 +211,31 @@ void Solve_KnightTour (U_Int8 x, U_Int8 y){
 
 	/*loop through the chess board*/
 	for (U_Int8 CNT=1;CNT<65;CNT++){
-		/*print some data of the steps*/
-		printf("\n loop: %d \n ",CNT);
-		printf("# of move: %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y));
-		printf("next move ID: %d \n ",BestNextMove);
-		/*move the knight*/
-		White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
-		White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
-		Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = CNT;
-		/*find the best next move for the knight*/
-		BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
-		/*display the board at this step*/
-		DispBoard ();
+		if(Display_flag == 1){
+			/*print some data of the steps*/
+			printf("\n loop: %d \n ",CNT);
+			printf("# of move: %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y));
+			printf("next move ID: %d \n ",BestNextMove);
+			/*move the knight*/
+			White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
+			White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
+			Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = CNT;
+			/*find the best next move for the knight*/
+			BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
+			/*display the board at this step*/
+			DispBoard ();
+		}
+		else{
+			/*move the knight*/
+			White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
+			White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
+			Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = CNT;
+			/*find the best next move for the knight*/
+			BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
+		}
 	}
 }
 
-//--------------------------------------------------------------------------------------------
 //Logic for the KnightTour solution-----------------------------------------------------------
 //returns next move based on how many moves for the knight are available at a given position
 U_Int8 NextMove(U_Int8 x,U_Int8 y){
@@ -242,7 +250,7 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 		switch (moveNumber + 1){
 					case 1:
 					ghost_x = x + 2;
-					ghost_y = y + 1 ;
+					ghost_y = y + 1;
 					break;
 					
 					case 2:
@@ -284,28 +292,17 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 					ghost_x = x + 0;
 					ghost_y = y + 0;
 					break;
-				} 
+		}
+
 		/*check if inbounds and a non occupied move*/
 		if ((((ghost_x) >= 0) && ((ghost_x) <= 7)) && (((ghost_y) >= 0) && ((ghost_y) <= 7)) && BoardValue_XY(ghost_x,ghost_y) == 0){
 			moves[moveNumber] = DetermineMoves(ghost_x,ghost_y);
 		}
 		else{
 			/*move not valid... out of bounce!*/
-			/*move not valid... move has been allready taken*/
+			/*move not valid... move has been already taken*/
 		}
-		
 	}
-	
+	/*return the best next move*/
 	return Sort_Array(moves);
 }
-
-//PerformMove(<int x>, <int y>, <int MOVE ID: 1,2,3,4,5,6,7,8>, <int Marker>, <int BOARD[][]>)
-void PerformMove(U_Int8 x, U_Int8 y, U_Int8 moveNumber, U_Int8 marker){
-
-	x = NEW_X(x,moveNumber);
-	y = NEW_Y(y,moveNumber);
-
-	Board[x][y] = marker;
-	
-}
-//--------------------------------------------------------------------------------------------
