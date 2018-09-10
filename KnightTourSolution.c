@@ -32,9 +32,5 @@ int main(void){
 	/*solve the knight tour from the start location 0,2 with some display*/
 	Solve_KnightTour(0U,2U,1U);
 
-	U_Int8 Test_A[8]={255, 255, 255, 255, 1, 1, 255, 255};
-
-	printf("\n %d \n ",Sort_Array(Test_A));
-
 	return 0;
 }
