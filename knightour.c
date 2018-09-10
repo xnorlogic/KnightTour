@@ -74,35 +74,35 @@ U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber){
 	return y;
 }
 
-U_Int8 Sort_Array(U_Int8 Array[8]){
-
-	U_Int8 TMP = 0;
-	U_Int8 T;
-	U_Int8 swap_flag = 0;
-	U_Int8 move_array[8] = {1,2,3,4,5,6,7,8};
-	
+U_Int8 Sort_Array(U_Int8 Array[8U]){
+	U_Int8 TMP = 0U;
+	U_Int8 Index = 0U;
+	U_Int8 swap_flag = 0U;
+	U_Int8 move_array[8U] = {1U,2U,3U,4U,5U,6U,7U,8U};
+	/*sort the array*/
 	do{	
-		swap_flag = 0;
-		for(T=0;T<7;T++){
-			if(Array[T]>Array[T+1]){
+		swap_flag = 0U;
+		for(Index=0U;Index<7U;Index++){
+			if(Array[Index]>Array[Index+1U]){
 				/*swap the array move element to sort the lowest possible move to the start of the array*/
-				TMP = Array[T];
-				Array[T] = Array[T+1];
-				Array[T+1] = TMP;
+				TMP = Array[Index];
+				Array[Index] = Array[Index+1U];
+				Array[Index+1U] = TMP;
 				/*swap  the moves array as a mirror in order to have the best next move*/
-				TMP = move_array[T];
-				move_array[T]  = move_array[T+1];
-				move_array[T+1] = TMP;
+				TMP = move_array[Index];
+				move_array[Index]  = move_array[Index+1U];
+				move_array[Index+1U] = TMP;
 				/*swap happened*/
-				swap_flag = 1;				
+				swap_flag = 1U;
 			}
 			else{
-				/*no change*/
+				/*no change, persist the no change flag*/
+				swap_flag = 0U;
 			}
 		}
 	}while(swap_flag);
 	/*return the corresponding move based on the sort*/
-	return move_array[0];
+	return move_array[0U];
 }
 
 /*Returns the value at a given offset location location with*/

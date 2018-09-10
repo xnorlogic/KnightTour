@@ -7,31 +7,31 @@ typedef unsigned char bool;
 typedef unsigned char U_Int8;
 
 /*Board Size*/
-#define ROW 8
-#define COL 8
+#define ROW 8U
+#define COL 8U
 
 /*Chess board*/
 U_Int8 Board[ROW][COL];
 
 /*knight xy move combination*/
-#define X_PLUS_2  x + 2
-#define X_PLUS_1  x + 1
-#define X_MINUS_2 x - 2
-#define X_MINUS_1 x - 1
-#define Y_PLUS_2  y + 2
-#define Y_PLUS_1  y + 1
-#define Y_MINUS_2 y - 2
-#define Y_MINUS_1 y - 1
+#define X_PLUS_2  x + 2U
+#define X_PLUS_1  x + 1U
+#define X_MINUS_2 x - 2U
+#define X_MINUS_1 x - 1U
+#define Y_PLUS_2  y + 2U
+#define Y_PLUS_1  y + 1U
+#define Y_MINUS_2 y - 2U
+#define Y_MINUS_1 y - 1U
 
 /*Move Restriction conditions knight*/
-#define IS_MOVE1_LEGAL (((X_PLUS_2)  <= 7) && ((X_PLUS_2)  >= 0)) && (((Y_PLUS_1)  <= 7) && ((Y_PLUS_1)  >= 0)) 
-#define IS_MOVE2_LEGAL (((X_PLUS_2)  <= 7) && ((X_PLUS_2)  >= 0)) && (((Y_MINUS_1) >= 0) && ((Y_MINUS_1) <= 7))
-#define IS_MOVE3_LEGAL (((X_PLUS_1)  <= 7) && ((X_PLUS_1)  >= 0)) && (((Y_PLUS_2)  <= 7) && ((Y_PLUS_2)  >= 0))
-#define IS_MOVE4_LEGAL (((X_PLUS_1)  <= 7) && ((X_PLUS_1)  >= 0)) && (((Y_MINUS_2) >= 0) && ((Y_MINUS_2) <= 7))
-#define IS_MOVE5_LEGAL (((X_MINUS_2) >= 0) && ((X_MINUS_2) <= 7)) && (((Y_PLUS_1)  <= 7) && ((Y_PLUS_1)  >= 0))
-#define IS_MOVE6_LEGAL (((X_MINUS_2) >= 0) && ((X_MINUS_2) <= 7)) && (((Y_MINUS_1) >= 0) && ((Y_MINUS_1) <= 7))
-#define IS_MOVE7_LEGAL (((X_MINUS_1) >= 0) && ((X_MINUS_1) <= 7)) && (((Y_PLUS_2)  <= 7) && ((Y_PLUS_2)  >= 0))
-#define IS_MOVE8_LEGAL (((X_MINUS_1) >= 0) && ((X_MINUS_1) <= 7)) && (((Y_MINUS_2) >= 0) && ((Y_MINUS_2) <= 7))
+#define IS_MOVE1_LEGAL (((X_PLUS_2)  <= 7U) && ((X_PLUS_2)  >= 0U)) && (((Y_PLUS_1)  <= 7U) && ((Y_PLUS_1)  >= 0U))
+#define IS_MOVE2_LEGAL (((X_PLUS_2)  <= 7U) && ((X_PLUS_2)  >= 0U)) && (((Y_MINUS_1) >= 0U) && ((Y_MINUS_1) <= 7U))
+#define IS_MOVE3_LEGAL (((X_PLUS_1)  <= 7U) && ((X_PLUS_1)  >= 0U)) && (((Y_PLUS_2)  <= 7U) && ((Y_PLUS_2)  >= 0U))
+#define IS_MOVE4_LEGAL (((X_PLUS_1)  <= 7U) && ((X_PLUS_1)  >= 0U)) && (((Y_MINUS_2) >= 0U) && ((Y_MINUS_2) <= 7U))
+#define IS_MOVE5_LEGAL (((X_MINUS_2) >= 0U) && ((X_MINUS_2) <= 7U)) && (((Y_PLUS_1)  <= 7U) && ((Y_PLUS_1)  >= 0U))
+#define IS_MOVE6_LEGAL (((X_MINUS_2) >= 0U) && ((X_MINUS_2) <= 7U)) && (((Y_MINUS_1) >= 0U) && ((Y_MINUS_1) <= 7U))
+#define IS_MOVE7_LEGAL (((X_MINUS_1) >= 0U) && ((X_MINUS_1) <= 7U)) && (((Y_PLUS_2)  <= 7U) && ((Y_PLUS_2)  >= 0U))
+#define IS_MOVE8_LEGAL (((X_MINUS_1) >= 0U) && ((X_MINUS_1) <= 7U)) && (((Y_MINUS_2) >= 0U) && ((Y_MINUS_2) <= 7U))
 
 typedef struct Chess_Piece_Location{
 	U_Int8 x;
@@ -45,7 +45,7 @@ U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber);
 
 U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber);
 
-U_Int8 Sort_Array(U_Int8 Array[8]);
+U_Int8 Sort_Array(U_Int8 Array[8U]);
 
 /*Returns the value at a given offset location*/
 U_Int8 BoardValue_XY_offset(U_Int8 x, U_Int8 y, U_Int8 moveNumber);
