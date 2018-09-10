@@ -9,9 +9,11 @@
 char Location_Solution[] = "KnightTourOutput.txt";
 
 int main(void){
+	U_Int8 LOOPx = 0;
+	U_Int8 LOOPy = 0;
 	
-	for (U_Int8 LOOPx=0;LOOPx<8;LOOPx++){	
-		for (U_Int8 LOOPy=0;LOOPy<8;LOOPy++){
+	for (LOOPx=0;LOOPx<8;LOOPx++){
+		for (LOOPy=0;LOOPy<8;LOOPy++){
 			/*Clear the board (Clean zero no moves on the board)*/
 			ClearBoard();
 			/*print on screen the start position*/
@@ -27,7 +29,7 @@ int main(void){
 
 	printf("\n Solutions Completed \n ");
 	
-	/*solve the knight tour from the start location 5,1 with some display*/
+	/*solve the knight tour from the start location 0,2 with some display*/
 	Solve_KnightTour(0,2,1);
 
 	return 0;

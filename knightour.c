@@ -163,9 +163,11 @@ U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 
 //Display the board in the console
 void DispBoard (void){
+	U_Int8 R = 0;
+	U_Int8 C = 0;
 	printf(" \n ");
-	for (int R = 0; R<ROW; R++){
-		for (int C =0; C<COL; C++){
+	for (R = 0; R<ROW; R++){
+		for (C = 0; C<COL; C++){
 			printf(" %2d ", Board [R][C]);
 		}
 		printf(" \n ");
@@ -174,12 +176,14 @@ void DispBoard (void){
 
 //Write the board to a txt file
 void WriteToFile (char Location[]){
+	U_Int8 R = 0;
+	U_Int8 C = 0;
 	FILE *fp;
     fp = fopen(Location, "a");
 	
 	fprintf(fp," \n ");
-	for (U_Int8 R = 0; R<ROW; R++){
-		for (U_Int8 C =0; C<COL; C++){
+	for (R = 0; R<ROW; R++){
+		for (C =0; C<COL; C++){
 			fprintf(fp, " %2d ", Board [R][C]);
 		}
 		fprintf(fp," \n ");
@@ -190,8 +194,10 @@ void WriteToFile (char Location[]){
 
 //Generates initial empty board with zeros
 void ClearBoard (void){
-	for (U_Int8 R = 0; R<ROW; R++){
-		for (U_Int8 C =0; C<COL; C++){
+	U_Int8 R = 0;
+	U_Int8 C = 0;
+	for (R = 0; R<ROW; R++){
+		for (C =0; C<COL; C++){
 			Board [R][C] = 0;
 		}
 	}
@@ -199,6 +205,7 @@ void ClearBoard (void){
 
 //solve the knight tour
 void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
+	U_Int8 CNT = 1;
 	U_Int8 BestNextMove;
 	/*perform a solution and show the step by step*/
 	/*initial position*/
@@ -210,7 +217,7 @@ void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	BestNextMove = 0;
 
 	/*loop through the chess board*/
-	for (U_Int8 CNT=1;CNT<65;CNT++){
+	for (CNT=1;CNT<65;CNT++){
 		if(Display_flag == 1){
 			/*print some data of the steps*/
 			printf("\n loop: %d \n ",CNT);
