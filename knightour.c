@@ -14,28 +14,28 @@ Board[x - 1][y - 2]
 
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 	switch (moveNumber){
-			case 1:x = x + 2;//Perform 34
+			case 1:x = x + 2;
 			break;
 			
-			case 2:x = x + 2;//Perform Move2
+			case 2:x = x + 2;
 			break;
 			
-			case 3:x = x + 1;//Perform Move3
+			case 3:x = x + 1;
 			break;
 			
-			case 4:x = x + 1;//Perform Move4
+			case 4:x = x + 1;
 			break;
 			
-			case 5:x = x - 2;//Perform Move5
+			case 5:x = x - 2;
 			break;
 			
-			case 6:x = x - 2;//Perform Move6
+			case 6:x = x - 2;
 			break;
 			
-			case 7:x = x - 1;//Perform Move7
+			case 7:x = x - 1;
 			break;
 			
-			case 8:x = x - 1;//Perform Move8
+			case 8:x = x - 1;
 			break;
 			
 			default: x = x + 0;
@@ -45,28 +45,28 @@ U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 
 U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber){
 	switch (moveNumber){
-				case 1:y = y + 1;//Perform Move1
+				case 1:y = y + 1;
 				break;
 				
-				case 2:y = y - 1;//Perform Move2
+				case 2:y = y - 1;
 				break;
 				
-				case 3:y = y + 2;//Perform Move3
+				case 3:y = y + 2;
 				break;
 				
-				case 4:y = y - 2;//Perform Move4
+				case 4:y = y - 2;
 				break;
 				
-				case 5:y = y + 1;//Perform Move5
+				case 5:y = y + 1;
 				break;
 				
-				case 6:y = y - 1;//Perform Move6
+				case 6:y = y - 1;
 				break;
 				
-				case 7:y = y + 2;//Perform Move7
+				case 7:y = y + 2;
 				break;
 				
-				case 8:y = y - 2;//Perform Move8
+				case 8:y = y - 2;
 				break;
 				
 				default : y = y + 0;
@@ -105,7 +105,7 @@ U_Int8 Sort_Array(U_Int8 Array[8]){
 	return move_array[0];
 }
 
-//Returns the value at a given offset location location with
+/*Returns the value at a given offset location location with*/
 U_Int8 BoardValue_XY_offset(U_Int8 x, U_Int8 y, U_Int8 moveNumber){
 	U_Int8 BoardValue = 0;
 	switch (moveNumber){
@@ -138,12 +138,12 @@ U_Int8 BoardValue_XY_offset(U_Int8 x, U_Int8 y, U_Int8 moveNumber){
 	return BoardValue;
 }
 
-//Returns the value at a given location
+/*Returns the value at a given location*/
 U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y){
 	return Board[x][y];
 }
 
-//returns how many moves for the Knight are available at a given location in the board
+/*returns how many moves for the Knight are available at a given location in the board*/
 U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	
 	U_Int8 possibleMoves = 0;
@@ -161,7 +161,7 @@ U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	return possibleMoves;
 }
 
-//Display the board in the console
+/*Display the board in the console*/
 void DispBoard (void){
 	U_Int8 R = 0;
 	U_Int8 C = 0;
@@ -174,7 +174,7 @@ void DispBoard (void){
 	}
 }
 
-//Write the board to a txt file
+/*Write the board to a txt file*/
 void WriteToFile (char Location[]){
 	U_Int8 R = 0;
 	U_Int8 C = 0;
@@ -192,7 +192,7 @@ void WriteToFile (char Location[]){
 	fclose(fp);
 }
 
-//Generates initial empty board with zeros
+/*Generates initial empty board with zeros*/
 void ClearBoard (void){
 	U_Int8 R = 0;
 	U_Int8 C = 0;
@@ -203,7 +203,7 @@ void ClearBoard (void){
 	}
 }
 
-//solve the knight tour
+/*solve the knight tour*/
 void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	U_Int8 CNT = 1;
 	U_Int8 BestNextMove;
@@ -243,8 +243,7 @@ void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	}
 }
 
-//Logic for the KnightTour solution-----------------------------------------------------------
-//returns next move based on how many moves for the knight are available at a given position
+/*returns next move based on how many moves for the knight are available at a given position*/
 U_Int8 NextMove(U_Int8 x,U_Int8 y){
 
     U_Int8 ghost_x;
