@@ -7,43 +7,19 @@
 typedef unsigned char bool;
 typedef unsigned char U_Int8;
 
-
 /*Board Size*/
 #define SeedBoardSize 15U
 #define BoardSize SeedBoardSize*SeedBoardSize
 #define ROW SeedBoardSize
 #define COL SeedBoardSize
 
-/*Chess board*/
-U_Int8 Board[ROW][COL];
-
-/*knight xy move combination*/
-#define X_PLUS_2  x + 2U
-#define X_PLUS_1  x + 1U
-#define X_MINUS_2 x - 2U
-#define X_MINUS_1 x - 1U
-#define Y_PLUS_2  y + 2U
-#define Y_PLUS_1  y + 1U
-#define Y_MINUS_2 y - 2U
-#define Y_MINUS_1 y - 1U
-
-/*Move Restriction conditions knight*/
-#define IS_MOVE1_LEGAL (((X_PLUS_2)  <= (SeedBoardSize-1)) && ((X_PLUS_2)  >= 0U)) && (((Y_PLUS_1)  <= (SeedBoardSize-1)) && ((Y_PLUS_1)  >= 0U))
-#define IS_MOVE2_LEGAL (((X_PLUS_2)  <= (SeedBoardSize-1)) && ((X_PLUS_2)  >= 0U)) && (((Y_MINUS_1) >= 0U) && ((Y_MINUS_1) <= (SeedBoardSize-1)))
-#define IS_MOVE3_LEGAL (((X_PLUS_1)  <= (SeedBoardSize-1)) && ((X_PLUS_1)  >= 0U)) && (((Y_PLUS_2)  <= (SeedBoardSize-1)) && ((Y_PLUS_2)  >= 0U))
-#define IS_MOVE4_LEGAL (((X_PLUS_1)  <= (SeedBoardSize-1)) && ((X_PLUS_1)  >= 0U)) && (((Y_MINUS_2) >= 0U) && ((Y_MINUS_2) <= (SeedBoardSize-1)))
-#define IS_MOVE5_LEGAL (((X_MINUS_2) >= 0U) && ((X_MINUS_2) <= (SeedBoardSize-1))) && (((Y_PLUS_1)  <= (SeedBoardSize-1)) && ((Y_PLUS_1)  >= 0U))
-#define IS_MOVE6_LEGAL (((X_MINUS_2) >= 0U) && ((X_MINUS_2) <= (SeedBoardSize-1))) && (((Y_MINUS_1) >= 0U) && ((Y_MINUS_1) <= (SeedBoardSize-1)))
-#define IS_MOVE7_LEGAL (((X_MINUS_1) >= 0U) && ((X_MINUS_1) <= (SeedBoardSize-1))) && (((Y_PLUS_2)  <= (SeedBoardSize-1)) && ((Y_PLUS_2)  >= 0U))
-#define IS_MOVE8_LEGAL (((X_MINUS_1) >= 0U) && ((X_MINUS_1) <= (SeedBoardSize-1))) && (((Y_MINUS_2) >= 0U) && ((Y_MINUS_2) <= (SeedBoardSize-1)))
-
 typedef struct Chess_Piece_Location{
 	U_Int8 x;
 	U_Int8 y;
 }Chess_Piece_Location;
 
-/*Structure to hold location of particular piece on the board...*/
-Chess_Piece_Location White_Knight_1_Location;
+/*Chess board*/
+U_Int8 Board[ROW][COL];
 
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber);
 

@@ -12,6 +12,29 @@ Board[x - 1][y + 2]
 Board[x - 1][y - 2]
 */
 
+/*knight xy move combination*/
+#define X_PLUS_2  x + 2U
+#define X_PLUS_1  x + 1U
+#define X_MINUS_2 x - 2U
+#define X_MINUS_1 x - 1U
+#define Y_PLUS_2  y + 2U
+#define Y_PLUS_1  y + 1U
+#define Y_MINUS_2 y - 2U
+#define Y_MINUS_1 y - 1U
+
+/*Move Restriction conditions knight*/
+#define IS_MOVE1_LEGAL (((X_PLUS_2)  <= (SeedBoardSize-1)) && ((X_PLUS_2)  >= 0U)) && (((Y_PLUS_1)  <= (SeedBoardSize-1)) && ((Y_PLUS_1)  >= 0U))
+#define IS_MOVE2_LEGAL (((X_PLUS_2)  <= (SeedBoardSize-1)) && ((X_PLUS_2)  >= 0U)) && (((Y_MINUS_1) >= 0U) && ((Y_MINUS_1) <= (SeedBoardSize-1)))
+#define IS_MOVE3_LEGAL (((X_PLUS_1)  <= (SeedBoardSize-1)) && ((X_PLUS_1)  >= 0U)) && (((Y_PLUS_2)  <= (SeedBoardSize-1)) && ((Y_PLUS_2)  >= 0U))
+#define IS_MOVE4_LEGAL (((X_PLUS_1)  <= (SeedBoardSize-1)) && ((X_PLUS_1)  >= 0U)) && (((Y_MINUS_2) >= 0U) && ((Y_MINUS_2) <= (SeedBoardSize-1)))
+#define IS_MOVE5_LEGAL (((X_MINUS_2) >= 0U) && ((X_MINUS_2) <= (SeedBoardSize-1))) && (((Y_PLUS_1)  <= (SeedBoardSize-1)) && ((Y_PLUS_1)  >= 0U))
+#define IS_MOVE6_LEGAL (((X_MINUS_2) >= 0U) && ((X_MINUS_2) <= (SeedBoardSize-1))) && (((Y_MINUS_1) >= 0U) && ((Y_MINUS_1) <= (SeedBoardSize-1)))
+#define IS_MOVE7_LEGAL (((X_MINUS_1) >= 0U) && ((X_MINUS_1) <= (SeedBoardSize-1))) && (((Y_PLUS_2)  <= (SeedBoardSize-1)) && ((Y_PLUS_2)  >= 0U))
+#define IS_MOVE8_LEGAL (((X_MINUS_1) >= 0U) && ((X_MINUS_1) <= (SeedBoardSize-1))) && (((Y_MINUS_2) >= 0U) && ((Y_MINUS_2) <= (SeedBoardSize-1)))
+
+/*Structure to hold location of particular piece on the board...*/
+Chess_Piece_Location White_Knight_1_Location;
+
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 	switch (moveNumber){
 			case 1:x = x + 2;
