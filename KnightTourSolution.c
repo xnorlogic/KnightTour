@@ -12,8 +12,8 @@ int main(void){
 	U_Int8 LOOPx = 0U;
 	U_Int8 LOOPy = 0U;
 	
-	for (LOOPx=0U;LOOPx<8U;LOOPx++){
-		for (LOOPy=0U;LOOPy<8U;LOOPy++){
+	for (LOOPx=0U;LOOPx<SeedBoardSize;LOOPx++){
+		for (LOOPy=0U;LOOPy<SeedBoardSize;LOOPy++){
 			/*Clear the board (Clean zero no moves on the board)*/
 			ClearBoard();
 			/*print on screen the start position*/
@@ -30,7 +30,7 @@ int main(void){
 	printf("\n Solutions Completed \n ");
 	
 	/*solve the knight tour from the start location 0,2 with some display*/
-	Solve_KnightTour(0U,2U,1U);
+	Solve_KnightTour(1U,2U,0U);
 
 	return 0;
 }

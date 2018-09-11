@@ -97,7 +97,6 @@ U_Int8 Sort_Array(U_Int8 Array[8U]){
 			}
 			else{
 				/*no change, persist the no change flag*/
-				swap_flag = 0U;
 			}
 		}
 	}while(swap_flag);
@@ -168,7 +167,7 @@ void DispBoard (void){
 	printf(" \n ");
 	for (R = 0; R<ROW; R++){
 		for (C = 0; C<COL; C++){
-			printf(" %2d ", Board [R][C]);
+			printf(" %3d ", Board [R][C]);
 		}
 		printf(" \n ");
 	}
@@ -217,7 +216,7 @@ void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	BestNextMove = 0;
 
 	/*loop through the chess board*/
-	for (CNT=1;CNT<65;CNT++){
+	for (CNT=1;CNT<BoardSize+1;CNT++){
 		if(Display_flag == 1){
 			/*print some data of the steps*/
 			printf("\n loop: %d \n ",CNT);
@@ -301,7 +300,7 @@ U_Int8 NextMove(U_Int8 x,U_Int8 y){
 		}
 
 		/*check if inbounds and a non occupied move*/
-		if ((((ghost_x) >= 0) && ((ghost_x) <= 7)) && (((ghost_y) >= 0) && ((ghost_y) <= 7)) && BoardValue_XY(ghost_x,ghost_y) == 0){
+		if ((((ghost_x) >= 0) && ((ghost_x) <= (SeedBoardSize-1))) && (((ghost_y) >= 0) && ((ghost_y) <= (SeedBoardSize-1))) && BoardValue_XY(ghost_x,ghost_y) == 0){
 			moves[moveNumber] = DetermineMoves(ghost_x,ghost_y);
 		}
 		else{
