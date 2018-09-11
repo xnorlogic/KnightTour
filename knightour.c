@@ -35,6 +35,9 @@ Board[x - 1][y - 2]
 /*Structure to hold location of particular piece on the board...*/
 Chess_Piece_Location White_Knight_1_Location;
 
+/*Chess board*/
+U_Int8 Board[ROW][COL];
+
 U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
 	switch (moveNumber){
 			case 1:x = x + 2;
@@ -167,7 +170,6 @@ U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y){
 
 /*returns how many moves for the Knight are available at a given location in the board*/
 U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
-	
 	U_Int8 possibleMoves = 0;
 	U_Int8 M1 = IS_MOVE1_LEGAL && (BoardValue_XY_offset(x,y,1) == 0);
 	U_Int8 M2 = IS_MOVE2_LEGAL && (BoardValue_XY_offset(x,y,2) == 0);
@@ -177,9 +179,7 @@ U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	U_Int8 M6 = IS_MOVE6_LEGAL && (BoardValue_XY_offset(x,y,6) == 0);
 	U_Int8 M7 = IS_MOVE7_LEGAL && (BoardValue_XY_offset(x,y,7) == 0);
 	U_Int8 M8 = IS_MOVE8_LEGAL && (BoardValue_XY_offset(x,y,8) == 0);
-	
 	possibleMoves = M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8;
-	
 	return possibleMoves;
 }
 
@@ -237,7 +237,6 @@ void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	ClearBoard();
 	/*set the best next move to zero for the first pass*/
 	BestNextMove = 0;
-
 	/*loop through the chess board*/
 	for (CNT=1;CNT<BoardSize+1;CNT++){
 		if(Display_flag == 1){
@@ -267,7 +266,6 @@ void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 
 /*returns next move based on how many moves for the knight are available at a given position*/
 U_Int8 NextMove(U_Int8 x,U_Int8 y){
-
     U_Int8 ghost_x;
 	U_Int8 ghost_y;
 	U_Int8 moveNumber = 0;
