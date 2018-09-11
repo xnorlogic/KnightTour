@@ -31,7 +31,7 @@ U_Int8 Sort_Array(U_Int8 Array[8U]);
 U_Int8 BoardValue_XY_offset(U_Int8 x, U_Int8 y, U_Int8 moveNumber);
 
 /*Returns the value at a given location*/
-U_Int8 BoardValue_XY(U_Int8 x, U_Int8);
+U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y);
 
 /*returns how many moves for the Knight are available at a given location in the board*/
 U_Int8 DetermineMoves(U_Int8 x, U_Int8 y);
