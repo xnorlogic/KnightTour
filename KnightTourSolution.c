@@ -4,6 +4,7 @@
 */
 
 #include "knightour.h"
+#include "chessboardlib.h"
 
 /*file outputs*/
 char Location_Solution[] = "KnightTourOutput.txt";
@@ -30,7 +31,7 @@ int main(void){
 	printf("\n Solutions Completed \n ");
 	
 	/*solve the knight tour from the start location 0,2 with some display*/
-	Solve_KnightTour(1U,2U,0U);
+	Solve_KnightTour(1U,1U,1U);
 
 	return 0;
 }

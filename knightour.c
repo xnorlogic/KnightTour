@@ -1,17 +1,5 @@
 #include "knightour.h"
 
-/*
-Possible moves for the knight
-Board[x + 2][y + 1]
-Board[x + 2][y - 1]
-Board[x + 1][y + 2]
-Board[x + 1][y - 2]
-Board[x - 2][y + 1]
-Board[x - 2][y - 1]
-Board[x - 1][y + 2]
-Board[x - 1][y - 2]
-*/
-
 /*knight xy move combination*/
 #define X_PLUS_2  x + 2U
 #define X_PLUS_1  x + 1U
@@ -31,74 +19,6 @@ Board[x - 1][y - 2]
 #define IS_MOVE6_LEGAL (((X_MINUS_2) >= 0U) && ((X_MINUS_2) <= (SeedBoardSize-1))) && (((Y_MINUS_1) >= 0U) && ((Y_MINUS_1) <= (SeedBoardSize-1)))
 #define IS_MOVE7_LEGAL (((X_MINUS_1) >= 0U) && ((X_MINUS_1) <= (SeedBoardSize-1))) && (((Y_PLUS_2)  <= (SeedBoardSize-1)) && ((Y_PLUS_2)  >= 0U))
 #define IS_MOVE8_LEGAL (((X_MINUS_1) >= 0U) && ((X_MINUS_1) <= (SeedBoardSize-1))) && (((Y_MINUS_2) >= 0U) && ((Y_MINUS_2) <= (SeedBoardSize-1)))
-
-/*Structure to hold location of particular piece on the board...*/
-Chess_Piece_Location White_Knight_1_Location;
-
-/*Chess board*/
-U_Int8 Board[ROW][COL];
-
-U_Int8 NEW_X (U_Int8 x, U_Int8 moveNumber){
-	switch (moveNumber){
-			case 1:x = x + 2;
-			break;
-			
-			case 2:x = x + 2;
-			break;
-			
-			case 3:x = x + 1;
-			break;
-			
-			case 4:x = x + 1;
-			break;
-			
-			case 5:x = x - 2;
-			break;
-			
-			case 6:x = x - 2;
-			break;
-			
-			case 7:x = x - 1;
-			break;
-			
-			case 8:x = x - 1;
-			break;
-			
-			default: x = x + 0;
-		} 
-	return x;
-}
-
-U_Int8 NEW_Y (U_Int8 y, U_Int8 moveNumber){
-	switch (moveNumber){
-				case 1:y = y + 1;
-				break;
-				
-				case 2:y = y - 1;
-				break;
-				
-				case 3:y = y + 2;
-				break;
-				
-				case 4:y = y - 2;
-				break;
-				
-				case 5:y = y + 1;
-				break;
-				
-				case 6:y = y - 1;
-				break;
-				
-				case 7:y = y + 2;
-				break;
-				
-				case 8:y = y - 2;
-				break;
-				
-				default : y = y + 0;
-			} 
-	return y;
-}
 
 U_Int8 Sort_Array(U_Int8 Array[8U]){
 	U_Int8 TMP = 0U;
@@ -163,11 +83,6 @@ U_Int8 BoardValue_XY_offset(U_Int8 x, U_Int8 y, U_Int8 moveNumber){
 	return BoardValue;
 }
 
-/*Returns the value at a given location*/
-U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y){
-	return Board[x][y];
-}
-
 /*returns how many moves for the Knight are available at a given location in the board*/
 U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	U_Int8 possibleMoves = 0;
@@ -183,83 +98,33 @@ U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	return possibleMoves;
 }
 
-/*Display the board in the console*/
-void DispBoard (void){
-	U_Int8 R = 0;
-	U_Int8 C = 0;
-	printf(" \n ");
-	for (R = 0; R<ROW; R++){
-		for (C = 0; C<COL; C++){
-			printf(" %3d ", Board [R][C]);
-		}
-		printf(" \n ");
-	}
-}
-
-/*Write the board to a txt file*/
-void WriteToFile (char Location[]){
-	U_Int8 R = 0;
-	U_Int8 C = 0;
-	FILE *fp;
-    fp = fopen(Location, "a");
-	
-	fprintf(fp," \n ");
-	for (R = 0; R<ROW; R++){
-		for (C =0; C<COL; C++){
-			fprintf(fp, " %2d ", Board [R][C]);
-		}
-		fprintf(fp," \n ");
-	}
-	
-	fclose(fp);
-}
-
-/*Generates initial empty board with zeros*/
-void ClearBoard (void){
-	U_Int8 R = 0;
-	U_Int8 C = 0;
-	for (R = 0; R<ROW; R++){
-		for (C =0; C<COL; C++){
-			Board [R][C] = 0;
-		}
-	}
-}
-
 /*solve the knight tour*/
 void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	U_Int8 CNT = 1;
-	U_Int8 BestNextMove;
-	/*perform a solution and show the step by step*/
+	/*set the best next move to zero for the first pass*/
+	U_Int8 BestNextMove = 0;
+	/*set the board size for the loop... we want to make +1 in order to start the board from 1 not from 0*/
+	U_Int8 My_Board_Size = BoardSize + 1;
 	/*initial position*/
 	White_Knight_1_Location.x=x;
 	White_Knight_1_Location.y=y;
 	/*clear the board*/
 	ClearBoard();
-	/*set the best next move to zero for the first pass*/
-	BestNextMove = 0;
 	/*loop through the chess board*/
-	for (CNT=1;CNT<BoardSize+1;CNT++){
+	for (CNT=1;CNT<My_Board_Size;CNT++){
+		/*move the knight*/
+		Make_Move(&White_Knight_1_Location,KNIGHT,BestNextMove,CNT);
+		/*find the best next move for the knight*/
+		BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
 		if(Display_flag == 1){
 			/*print some data of the steps*/
 			printf("\n loop: %d \n ",CNT);
 			printf("# of move: %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y));
 			printf("next move ID: %d \n ",BestNextMove);
-			/*move the knight*/
-			White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
-			White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
-			Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = CNT;
-			/*find the best next move for the knight*/
-			BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
-			/*display the board at this step*/
 			DispBoard ();
 		}
 		else{
-			/*move the knight*/
-			White_Knight_1_Location.x = NEW_X(White_Knight_1_Location.x,BestNextMove);
-			White_Knight_1_Location.y = NEW_Y(White_Knight_1_Location.y,BestNextMove);
-			Board[White_Knight_1_Location.x][White_Knight_1_Location.y] = CNT;
-			/*find the best next move for the knight*/
-			BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
+			/*no print*/
 		}
 	}
 }
