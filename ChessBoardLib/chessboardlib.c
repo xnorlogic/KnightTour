@@ -1,14 +1,18 @@
 #include "chessboardlib.h"
 
-void Make_Move(Chess_Piece_Location *ChessPiece,U_Int8 PieceType,U_Int8 move,U_Int8 marker){
+void Make_Move(Chess_Set *My_Chess_Set,U_Int8 PieceType,U_Int8 move,U_Int8 marker){
+	U_Int8 X_Local;
+	U_Int8 Y_Local;
 	/*To Do: create the moves and rules for the other chess pieces*/
 	switch(PieceType){
 		case PAWN:
 		break;
 
 		case KNIGHT:
-		ChessPiece->x = NEW_X_Knight(ChessPiece->x,move);
-		ChessPiece->y = NEW_Y_Knight(ChessPiece->y,move);
+			My_Chess_Set->Chess_White.Knight_1.x = NEW_X_Knight(My_Chess_Set->Chess_White.Knight_1.x,move);
+			My_Chess_Set->Chess_White.Knight_1.y = NEW_Y_Knight(My_Chess_Set->Chess_White.Knight_1.y,move);
+			X_Local = My_Chess_Set->Chess_White.Knight_1.x;
+			Y_Local = My_Chess_Set->Chess_White.Knight_1.y;
 		break;
 
 		case BISHOP:
@@ -22,12 +26,8 @@ void Make_Move(Chess_Piece_Location *ChessPiece,U_Int8 PieceType,U_Int8 move,U_I
 
 		case KING:
 		break;
-
-		default :
-			ChessPiece->x = ChessPiece->x + 0;
-			ChessPiece->y = ChessPiece->y + 0;
 	}
-	Board[ChessPiece->x][ChessPiece->y] = marker;
+	Board[X_Local][Y_Local] = marker;
 }
 
 /*
@@ -133,7 +133,7 @@ void WriteToFile (char Location[]){
 	fprintf(fp," \n ");
 	for (R = 0; R<ROW; R++){
 		for (C =0; C<COL; C++){
-			fprintf(fp, " %2d ", Board [R][C]);
+			fprintf(fp, " %3d ", Board [R][C]);
 		}
 		fprintf(fp," \n ");
 	}

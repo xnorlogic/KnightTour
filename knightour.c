@@ -120,21 +120,31 @@ void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	U_Int8 BestNextMove = 0;
 	/*set the board size for the loop... we want to make +1 in order to start the board from 1 not from 0*/
 	U_Int8 My_Board_Size = BoardSize + 1;
+	/*local variables to hold the knight location from the structure*/
+	U_Int8 KinghtLocation_X;
+	U_Int8 KinghtLocation_Y;
 	/*initial position*/
-	White_Knight_1_Location.x=x;
-	White_Knight_1_Location.y=y;
+	My_Chess_Set.Chess_White.Knight_1.x=x;
+	My_Chess_Set.Chess_White.Knight_1.y=y;
+	/*setup the knight location for the algorithm... extract from the board set... using the white knight 1 just for kicks*/
+	KinghtLocation_X = My_Chess_Set.Chess_White.Knight_1.x;
+	KinghtLocation_Y = My_Chess_Set.Chess_White.Knight_1.y;
 	/*clear the board*/
 	ClearBoard();
 	/*loop through the chess board... lets start from 1 so that we don't get a 0 move on the board*/
 	for (CNT=1;CNT<My_Board_Size;CNT++){
 		/*move the knight*/
-		Make_Move(&White_Knight_1_Location,KNIGHT,BestNextMove,CNT);
+		Make_Move(&My_Chess_Set,KNIGHT,BestNextMove,CNT);
+		/*update the local variable*/
+		KinghtLocation_X = My_Chess_Set.Chess_White.Knight_1.x;
+		KinghtLocation_Y = My_Chess_Set.Chess_White.Knight_1.y;
 		/*find the best next move for the knight*/
-		BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
+		BestNextMove = NextMove(KinghtLocation_X, KinghtLocation_Y);
+		/*display or not... users choice*/
 		if(Display_flag == 1U){
 			/*print some data of the steps*/
 			printf("\n loop: %d \n ",CNT);
-			printf("# of move: %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y));
+			printf("# of move: %d \n ",DetermineMoves(KinghtLocation_X, KinghtLocation_Y));
 			printf("next move ID: %d \n ",BestNextMove);
 			DispBoard ();
 		}

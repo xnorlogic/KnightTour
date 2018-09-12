@@ -4,7 +4,6 @@
 */
 
 #include "knightour.h"
-#include "chessboardlib.h"
 
 /*file outputs*/
 char Location_Solution[] = "KnightTourOutput.txt";
