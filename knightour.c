@@ -114,7 +114,8 @@ U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 
 /*solve the knight tour from a given starting position*/
 void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
-	U_Int8 CNT = 1;
+	/*accumulator for the move loops... max moves 255*/
+	U_Int8 CNT;
 	/*set the best next move to zero for the first pass*/
 	U_Int8 BestNextMove = 0;
 	/*set the board size for the loop... we want to make +1 in order to start the board from 1 not from 0*/
@@ -124,13 +125,13 @@ void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	White_Knight_1_Location.y=y;
 	/*clear the board*/
 	ClearBoard();
-	/*loop through the chess board*/
+	/*loop through the chess board... lets start from 1 so that we don't get a 0 move on the board*/
 	for (CNT=1;CNT<My_Board_Size;CNT++){
 		/*move the knight*/
 		Make_Move(&White_Knight_1_Location,KNIGHT,BestNextMove,CNT);
 		/*find the best next move for the knight*/
 		BestNextMove = NextMove(White_Knight_1_Location.x, White_Knight_1_Location.y);
-		if(Display_flag == 1){
+		if(Display_flag == 1U){
 			/*print some data of the steps*/
 			printf("\n loop: %d \n ",CNT);
 			printf("# of move: %d \n ",DetermineMoves(White_Knight_1_Location.x,White_Knight_1_Location.y));
