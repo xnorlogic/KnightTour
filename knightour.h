@@ -3,7 +3,6 @@
 
 #include "chessboardlib.h"
 
-/*knight tour functions---------------------------------------------------------------------*/
 /*sort the array for best move*/
 U_Int8 Sort_Array(U_Int8 Array[8U]);
 /*Returns the value at a given offset location*/

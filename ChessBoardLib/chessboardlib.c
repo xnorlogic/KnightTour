@@ -32,16 +32,17 @@ void Make_Move(Chess_Piece_Location *ChessPiece,U_Int8 PieceType,U_Int8 move,U_I
 
 /*
 Possible moves for the knight
-Board[x + 2][y + 1]
-Board[x + 2][y - 1]
-Board[x + 1][y + 2]
-Board[x + 1][y - 2]
-Board[x - 2][y + 1]
-Board[x - 2][y - 1]
-Board[x - 1][y + 2]
-Board[x - 1][y - 2]
+Board[x + 2][y + 1] move 1
+Board[x + 2][y - 1] move 2
+Board[x + 1][y + 2] move 3
+Board[x + 1][y - 2] move 4
+Board[x - 2][y + 1] move 5
+Board[x - 2][y - 1] move 6
+Board[x - 1][y + 2] move 7
+Board[x - 1][y - 2] move 8
 */
 
+/*x,y move combination for the knight------------*/
 U_Int8 NEW_X_Knight (U_Int8 x, U_Int8 moveNumber){
 	switch (moveNumber){
 			case 1:x = x + 2;
@@ -72,7 +73,6 @@ U_Int8 NEW_X_Knight (U_Int8 x, U_Int8 moveNumber){
 		}
 	return x;
 }
-
 U_Int8 NEW_Y_Knight (U_Int8 y, U_Int8 moveNumber){
 	switch (moveNumber){
 				case 1:y = y + 1;
@@ -103,6 +103,7 @@ U_Int8 NEW_Y_Knight (U_Int8 y, U_Int8 moveNumber){
 			}
 	return y;
 }
+/*-----------------------------------------------*/
 
 /*Returns the value at a given location*/
 U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y){

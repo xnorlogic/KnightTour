@@ -24,7 +24,21 @@ U_Int8 Sort_Array(U_Int8 Array[8U]){
 	U_Int8 TMP = 0U;
 	U_Int8 Index = 0U;
 	U_Int8 swap_flag = 0U;
+
+	/*move_array[] array numbers out the moves for the knight... order dependent*/
+
+	/*  Possible moves for the knight:
+		Board[x + 2][y + 1] move 1
+		Board[x + 2][y - 1] move 2
+		Board[x + 1][y + 2] move 3
+		Board[x + 1][y - 2] move 4
+		Board[x - 2][y + 1] move 5
+		Board[x - 2][y - 1] move 6
+		Board[x - 1][y + 2] move 7
+		Board[x - 1][y - 2] move 8     */
+
 	U_Int8 move_array[8U] = {1U,2U,3U,4U,5U,6U,7U,8U};
+
 	/*sort the array*/
 	do{	
 		swap_flag = 0U;
@@ -98,7 +112,7 @@ U_Int8 DetermineMoves(U_Int8 x, U_Int8 y){
 	return possibleMoves;
 }
 
-/*solve the knight tour*/
+/*solve the knight tour from a given starting position*/
 void Solve_KnightTour (U_Int8 x, U_Int8 y, U_Int8 Display_flag){
 	U_Int8 CNT = 1;
 	/*set the best next move to zero for the first pass*/
