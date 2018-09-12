@@ -41,9 +41,6 @@ typedef struct Chess_Set{
 	Pieces Chess_Black;
 }Chess_Set;
 
-/*Structure to hold the location of the pieces of a chess set*/
-Chess_Set My_Chess_Set;
-
 /*chess pieces from least important to most important*/
 enum ChessPieces {NoPiece,PAWN,KNIGHT,BISHOP,ROOK,QUEEN,KING};
 
@@ -55,7 +52,7 @@ U_Int8 NEW_X_Knight (U_Int8 x, U_Int8 moveNumber);
 /*new y for knight move*/
 U_Int8 NEW_Y_Knight (U_Int8 y, U_Int8 moveNumber);
 /*move a chess piece*/
-void Make_Move(Chess_Set *My_Chess_Set,U_Int8 PieceType,U_Int8 move,U_Int8 marker);
+void Make_Move(Chess_Set *,U_Int8 PieceType,U_Int8 move,U_Int8 marker);
 /*Returns the value at a given location*/
 U_Int8 BoardValue_XY(U_Int8 x, U_Int8 y);
 /*Display the board in the console*/

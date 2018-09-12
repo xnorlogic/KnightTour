@@ -1,6 +1,6 @@
 #include "chessboardlib.h"
 
-void Make_Move(Chess_Set *My_Chess_Set,U_Int8 PieceType,U_Int8 move,U_Int8 marker){
+void Make_Move(Chess_Set *Local_Chess_Set,U_Int8 PieceType,U_Int8 move,U_Int8 marker){
 	U_Int8 X_Local;
 	U_Int8 Y_Local;
 	/*To Do: create the moves and rules for the other chess pieces*/
@@ -9,10 +9,10 @@ void Make_Move(Chess_Set *My_Chess_Set,U_Int8 PieceType,U_Int8 move,U_Int8 marke
 		break;
 
 		case KNIGHT:
-			My_Chess_Set->Chess_White.Knight_1.x = NEW_X_Knight(My_Chess_Set->Chess_White.Knight_1.x,move);
-			My_Chess_Set->Chess_White.Knight_1.y = NEW_Y_Knight(My_Chess_Set->Chess_White.Knight_1.y,move);
-			X_Local = My_Chess_Set->Chess_White.Knight_1.x;
-			Y_Local = My_Chess_Set->Chess_White.Knight_1.y;
+			Local_Chess_Set->Chess_White.Knight_1.x = NEW_X_Knight(Local_Chess_Set->Chess_White.Knight_1.x,move);
+			Local_Chess_Set->Chess_White.Knight_1.y = NEW_Y_Knight(Local_Chess_Set->Chess_White.Knight_1.y,move);
+			X_Local = Local_Chess_Set->Chess_White.Knight_1.x;
+			Y_Local = Local_Chess_Set->Chess_White.Knight_1.y;
 		break;
 
 		case BISHOP:

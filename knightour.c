@@ -1,5 +1,8 @@
 #include "knightour.h"
 
+/*Declare the chess set to use*/
+Chess_Set My_Chess_Set;
+
 /*knight xy move combination*/
 #define X_PLUS_2  x + 2U
 #define X_PLUS_1  x + 1U
