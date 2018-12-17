@@ -1,3 +1,3 @@
 # KnightTour
-KnightTour solution
+KnightTour solution (heuristic algorithm)
 GCC
