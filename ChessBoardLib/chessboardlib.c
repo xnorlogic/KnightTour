@@ -1,4 +1,5 @@
 #include "chessboardlib.h"
+/*TBD... Create more chess pieces!*/
 
 void Make_Move(Chess_Set *Local_Chess_Set,U_Int8 PieceType,U_Int8 move,U_Int8 marker){
 	U_Int8 X_Local;
